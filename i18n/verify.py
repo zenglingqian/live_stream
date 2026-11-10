@@ -8,7 +8,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 keys = [x['zh'] for x in json.load(io.open(os.path.join(HERE, 'strings.json'), encoding='utf-8'))['strings']]
 kset = set(keys)
 
-targets = sys.argv[1:] or ['zh-TW', 'en', 'ja', 'ru']
+ALL = ['zh-TW', 'en', 'ja', 'ru']
+targets = sys.argv[1:] or ALL
+if 'all' in targets:
+    targets = ALL
 for name in targets:
     p = os.path.join(HERE, name + '.json')
     try:
