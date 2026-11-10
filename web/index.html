@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>今晚去哪播？ · 抖音 / 虎牙 / 微信视频号</title>
 <meta name="description" content="2026年直播平台选型：去哪播最赚？抖音、虎牙、微信视频号全维度对比与35类直播适配排序">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="vendor/chart.umd.min.js"></script>
 <style>
 /* ============================================================
    Design language derived from apple.com product-launch pages
@@ -39,6 +39,10 @@
   --hairline-2: rgba(210,210,215,.5);
   --tile: rgba(255,255,255,.72);
   --tile-hover: rgba(255,255,255,.92);
+  --tile-solid: #ffffff;
+  --rail-solid: #f2f2f4;
+  --thead-solid: #ececee;
+  --row-hover-solid: #f5f5f7;
   --mask: rgba(245,245,247,.72);
   --mask-grey: rgba(232,232,237,.74);
   --mask-dark: rgba(29,29,31,.84);
@@ -104,6 +108,10 @@ body.dark{
   --hairline-2: rgba(66,66,69,.6);
   --tile: rgba(28,28,30,.66);
   --tile-hover: rgba(44,44,46,.8);
+  --tile-solid: #1d1d1f;
+  --rail-solid: #0f0f10;
+  --thead-solid: #2a2a2d;
+  --row-hover-solid: #26262a;
   --mask: rgba(0,0,0,.66);
   --mask-grey: rgba(28,28,30,.68);
   --mask-dark: rgba(0,0,0,.84);
@@ -239,9 +247,9 @@ body.nav-scrolled .nav::after{ opacity: 1 }
 .nav-inner{
   max-width: var(--col); margin: 0 auto; width: 100%; padding: 0 22px;
   display: flex; align-items: center; gap: 22px;
-  overflow-x: auto; scrollbar-width: none;
+  min-width: 0;
 }
-.nav-inner::-webkit-scrollbar{ display: none }
+.nav-scroll::-webkit-scrollbar{ display: none }
 .nav-brand{
   font-size: calc(14px * var(--site-type)); font-weight: 600; letter-spacing: -0.01em;
   color: var(--site-fg); white-space: nowrap; flex: none;
@@ -666,6 +674,68 @@ body.dark .ac:hover{ color: #64d2ff }
   .wrap{ max-width: calc(var(--col) + 40px) }
 }
 
+/* ---- mobile adaptation ---- */
+.nav-scroll{
+  display: flex; align-items: center; gap: 22px;
+  flex: 0 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.cwrap{ position: relative; height: clamp(240px, 32vw, 300px) }
+.cwrap canvas{ display: block }
+.swipe-hint{ display: none }
+
+@media (max-width: 734px){
+  .nav-inner{ padding: 0 14px; gap: 12px }
+  .nav-brand{ font-size: calc(13px * var(--site-type)) }
+  .nav-scroll{ gap: 18px;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 22px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 22px), transparent) }
+  .nav-link{ font-size: calc(13px * var(--site-type)); padding: 12px 0 }
+  .nav-link.active::after{ bottom: 6px }
+  .seg-btn{ width: 30px; height: 24px }
+  .hero-meta span{ font-size: calc(11px * var(--site-type)); padding: 4px 10px }
+
+  /* flattened tiles: ancestor backdrop-filter is a known canvas-paint hazard on phones */
+  .glass-card, .chart-box, .step-card, .warn-card, .policy-card, .persona-card,
+  .decision-item, .note-card, .next-card, .duo-card, .table-scroll{
+    backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--tile-solid) }
+  .glass-card:hover, .chart-box:hover, .step-card:hover, .policy-card:hover,
+  .persona-card:hover, .decision-item:hover{ transform: none }
+  .cat-header{ backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--rail-solid) }
+
+  .chart-grid{ gap: 14px }
+  .chart-box{ padding: 20px 16px }
+  .chart-box h4{ margin-bottom: 14px }
+  .cwrap{ height: 252px }
+
+  .swipe-hint{ display: block; font-size: calc(12px * var(--site-type)); color: var(--muted-2);
+    letter-spacing: -0.01em; text-align: right; margin: -6px 2px 10px }
+  .table-scroll{ overflow: auto; margin-top: 4px }
+  table{ min-width: 540px; font-size: calc(13px * var(--site-type)) }
+  th, td{ padding: 11px 12px }
+  th{ background: var(--thead-solid); font-size: calc(11px * var(--site-type)) }
+  td{ letter-spacing: -0.014em; line-height: 1.42 }
+  td.dim{ width: auto; font-size: calc(13px * var(--site-type)) }
+  .tbl-sticky th:first-child, .tbl-sticky td:first-child{
+    position: sticky; left: 0; z-index: 4; width: 122px; max-width: 122px; white-space: normal;
+    border-right: 1px solid var(--table-border) }
+  .tbl-sticky th:first-child{ z-index: 6 }
+  .tbl-sticky td:first-child{ background: var(--tile-solid) }
+  .tbl-sticky tbody tr:hover td{ background: var(--table-hover-bg) }
+  .tbl-sticky tbody tr:hover td:first-child{ background: var(--row-hover-solid) }
+
+  .stat-header{ flex-wrap: wrap; gap: 6px 14px }
+  .stat-value{ font-size: calc(clamp(46px, 12vw, 60px) * var(--site-type)) }
+  .persona-card .big-num{ font-size: calc(clamp(40px, 11vw, 52px) * var(--site-type)) }
+  .lede{ font-size: calc(16px * var(--site-type)) }
+  .decision-item{ padding: 18px 20px; gap: 14px }
+}
+@media (max-width: 430px){
+  .hero h1{ font-size: calc(clamp(34px, 10.4vw, 46px) * var(--site-type)) }
+  table{ min-width: 500px }
+  .tbl-sticky th:first-child, .tbl-sticky td:first-child{ width: 104px; max-width: 104px }
+  .cwrap{ height: 224px }
+}
+
 /* ---- reduced motion ---- */
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto }
@@ -696,6 +766,7 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 <nav class="nav">
   <div class="nav-inner">
     <span class="nav-brand">今晚去哪播？</span>
+    <div class="nav-scroll">
     <a class="nav-link" href="#summary">摘要</a>
     <a class="nav-link" href="#dashboard">数据看板</a>
     <a class="nav-link" href="#basic">基本面</a>
@@ -705,6 +776,7 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <a class="nav-link" href="#types">类型排序</a>
     <a class="nav-link" href="#conclusion">结论</a>
     <a class="nav-link" href="#sources">来源</a>
+    </div>
     <div class="seg" role="group" aria-label="外观主题">
       <span class="seg-thumb" aria-hidden="true"></span>
       <button class="seg-btn" type="button" data-theme="light" aria-pressed="true" aria-label="浅色模式" onclick="switchTheme('light')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.4 5.4l1.7 1.7M16.9 16.9l1.7 1.7M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7"/></svg></button>
@@ -759,14 +831,14 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <h2 class="reveal">一眼看懂三平台。</h2>
     <p class="lede reveal">用图表直观呈现三大平台在用户规模、市场占有、变现效率等关键指标上的差异。</p>
     <div class="chart-grid">
-      <div class="chart-box reveal"><h4>月活用户规模 (亿)</h4><canvas id="chartMAU"></canvas></div>
-      <div class="chart-box reveal d1"><h4>直播电商 GMV 市场份额 (2025)</h4><canvas id="chartGMV"></canvas></div>
-      <div class="chart-box reveal d2"><h4>35 类直播第一名胜出次数</h4><canvas id="chartRank"></canvas></div>
-      <div class="chart-box reveal d3"><h4>电商客单价对比 (元/笔)</h4><canvas id="chartPrice"></canvas></div>
+      <div class="chart-box reveal"><h4>月活用户规模 (亿)</h4><div class="cwrap"><canvas id="chartMAU"></canvas></div></div>
+      <div class="chart-box reveal d1"><h4>直播电商 GMV 市场份额 (2025)</h4><div class="cwrap"><canvas id="chartGMV"></canvas></div></div>
+      <div class="chart-box reveal d2"><h4>35 类直播第一名胜出次数</h4><div class="cwrap"><canvas id="chartRank"></canvas></div></div>
+      <div class="chart-box reveal d3"><h4>电商客单价对比 (元/笔)</h4><div class="cwrap"><canvas id="chartPrice"></canvas></div></div>
     </div>
     <div class="chart-grid" style="margin-top:24px">
-      <div class="chart-box reveal"><h4>用户年龄分布对比</h4><canvas id="chartAge"></canvas></div>
-      <div class="chart-box reveal d1"><h4>主播打赏分成比例 (%)</h4><canvas id="chartShare"></canvas></div>
+      <div class="chart-box reveal"><h4>用户年龄分布对比</h4><div class="cwrap"><canvas id="chartAge"></canvas></div></div>
+      <div class="chart-box reveal d1"><h4>主播打赏分成比例 (%)</h4><div class="cwrap"><canvas id="chartShare"></canvas></div></div>
     </div>
     <h3 class="reveal" style="margin-top:48px">35 类直播中排第一的次数</h3>
     <div class="stats-section reveal" id="statsBars">
@@ -783,8 +855,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <h2 class="reveal">三种体量，三种定位。</h2>
     <p class="lede reveal">抖音是"流量海洋"，虎牙是"垂直鱼塘"，视频号是"熟人社会"。三者的月活体量相差一个数量级，但视频号用户的单次停留质量和信任度更高，虎牙观众的付费目的性最强。</p>
 
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th></tr></thead>
         <tbody>
           <tr><td class="dim">母公司</td><td>字节跳动</td><td>腾讯控股</td><td>腾讯（微信团队直营）</td></tr>
@@ -805,8 +878,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <h2 class="reveal">观众是谁，决定平台是谁。</h2>
     <p class="lede reveal">目标受众是年轻男性玩家，选虎牙；是 30 岁以上女性、家庭消费人群或中老年，视频号几乎没有对手；需要泛流量、全年龄段覆盖，选抖音。</p>
 
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th></tr></thead>
         <tbody>
           <tr><td class="dim">年龄</td><td>18–35 岁为主，24 岁以下是最大群体</td><td>年轻男性为主，约 69% 在 25 岁以内</td><td>明显偏成熟：30–50 岁为消费主力；50 岁以上占比 20.9%</td></tr>
@@ -826,8 +900,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <h2 class="reveal">抖音赚"量"，视频号赚"价"，虎牙赚"情感"。</h2>
     <p class="lede reveal">需要注意：虎牙赖以生存的打赏大盘正处于行业性收缩周期（"榜一大哥"现象退潮），天花板可见。</p>
 
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th></tr></thead>
         <tbody>
           <tr><td class="dim">电商客单价</td><td>约 130 元/笔</td><td>非电商主战场</td><td><span class="c-sph">约 205 元/笔</span>，高出抖音约 58%</td></tr>
@@ -848,8 +923,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <p class="lede reveal">三家都是实名认证即可开播，差异主要在电商门槛、分成结构与公会约束。政策动态调整频繁，签约前请以官方后台最新规则为准。</p>
 
     <h3 class="reveal">开播与开店门槛</h3>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>事项</th><th>抖音</th><th>虎牙</th><th>微信视频号</th></tr></thead>
         <tbody>
           <tr><td class="dim">开播门槛</td><td>实名认证即可开播</td><td>实名即可，获取流量基本必须挂靠公会</td><td>实名即可，个人开播最友好</td></tr>
@@ -860,8 +936,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     </div>
 
     <h3 class="reveal" style="margin-top:40px">直播打赏分成（主播实际到手）</h3>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>平台</th><th>个人主播</th><th>公会主播</th><th>提现规则</th></tr></thead>
         <tbody>
           <tr><td class="dim"><span class="c-dy">抖音</span></td><td>30%–50%</td><td>30%–55%，S 级头部公会可更高</td><td>平台与公会按 70%/50%/40% 三档结算</td></tr>
@@ -914,8 +991,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 
     <!-- A: Gaming -->
     <div class="cat-header reveal"><h3>A · 游戏直播</h3><span class="cat-badge">5 类</span></div>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
           <tr><td>1. 电竞网游（LOL / 王者 / CS）</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>虎牙核心主场，公会与赛事生态最成熟</td></tr>
@@ -929,8 +1007,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 
     <!-- B: Entertainment -->
     <div class="cat-header reveal"><h3>B · 泛娱乐 / 秀场直播</h3><span class="cat-badge">5 类</span></div>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
           <tr><td>6. 歌舞才艺</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>抖音大盘最大；传统曲艺向可看视频号</td></tr>
@@ -944,8 +1023,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 
     <!-- C: E-commerce -->
     <div class="cat-header reveal"><h3>C · 电商带货</h3><span class="cat-badge">7 类</span></div>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
           <tr><td>11. 达人综合带货</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音规模大（GMV 约 6800 亿元），视频号以高客单补位</td></tr>
@@ -961,8 +1041,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 
     <!-- D: Knowledge -->
     <div class="cat-header reveal"><h3>D · 知识 / 专业直播</h3><span class="cat-badge">4 类</span></div>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
           <tr><td>18. 教育培训 / 兴趣课程</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音规模大；已有私域则视频号转化率更高</td></tr>
@@ -975,8 +1056,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 
     <!-- E: Local Life -->
     <div class="cat-header reveal"><h3>E · 本地生活 / 服务直播</h3><span class="cat-badge">5 类</span></div>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
           <tr><td>22. 探店 / 团购核销</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音本地生活主场，商家扶持政策多</td></tr>
@@ -990,8 +1072,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 
     <!-- F: Social -->
     <div class="cat-header reveal"><h3>F · 情感 / 交友直播</h3><span class="cat-badge">2 类</span></div>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
           <tr><td>27. 相亲交友</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>中老年相亲在视频号爆火；抖音严打剧本炒作</td></tr>
@@ -1002,8 +1085,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 
     <!-- G: Events -->
     <div class="cat-header reveal"><h3>G · 活动 / 事件直播</h3><span class="cat-badge">4 类</span></div>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
           <tr><td>29. 体育 / 电竞赛事转播</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>泛体育版权抖音强；电竞赛事则虎牙优先</td></tr>
@@ -1016,8 +1100,9 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 
     <!-- H: Special -->
     <div class="cat-header reveal"><h3>H · 特殊形态直播</h3><span class="cat-badge">3 类</span></div>
+    <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table>
+      <table class="tbl-sticky">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
           <tr><td>33. 慢直播（风景 / 24h 场景）</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>中老年"云陪伴"场景表现突出</td></tr>
@@ -1342,22 +1427,25 @@ var c0 = getChartColors();
 Chart.defaults.color = c0.text;
 Chart.defaults.borderColor = c0.grid;
 Chart.defaults.font.family = getChartFont();
+var MOBILE_MQ = window.matchMedia ? window.matchMedia('(max-width: 734px), (pointer: coarse) and (max-width: 1068px)') : null;
+function isMobile() { return !!(MOBILE_MQ && MOBILE_MQ.matches); }
+if (isMobile()) { document.documentElement.classList.add('is-mobile'); Chart.defaults.font.size = 11; }
 var chartMAU, chartGMV, chartRank, chartPrice, chartAge, chartShare;
 var ctxMAU = document.getElementById('chartMAU');
 if (ctxMAU) {
-  chartMAU = new Chart(ctxMAU, { type: 'bar', data: { labels: ['抖音', '微信视频号', '虎牙'], datasets: [{ label: '月活用户 (亿)', data: [10, 12, 1.62], backgroundColor: [c0.dyBg, c0.sphBg, c0.hyBg], borderColor: [c0.dy, c0.sph, c0.hy], borderWidth: 2, borderRadius: 8, barPercentage: 0.6, _themeColors: [c0.dy, c0.sph, c0.hy], _themeBg: [c0.dyBg, c0.sphBg, c0.hyBg] }] }, options: { responsive: true, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.y + ' 亿'; } } } }, scales: { y: { beginAtZero: true, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return v + '亿'; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
+  chartMAU = new Chart(ctxMAU, { type: 'bar', data: { labels: ['抖音', '微信视频号', '虎牙'], datasets: [{ label: '月活用户 (亿)', data: [10, 12, 1.62], backgroundColor: [c0.dyBg, c0.sphBg, c0.hyBg], borderColor: [c0.dy, c0.sph, c0.hy], borderWidth: 2, borderRadius: 8, barPercentage: 0.6, _themeColors: [c0.dy, c0.sph, c0.hy], _themeBg: [c0.dyBg, c0.sphBg, c0.hyBg] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.y + ' 亿'; } } } }, scales: { y: { beginAtZero: true, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return v + '亿'; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
 }
 var ctxGMV = document.getElementById('chartGMV');
 if (ctxGMV) {
-  chartGMV = new Chart(ctxGMV, { type: 'doughnut', data: { labels: ['抖音电商', '快手电商', '淘宝直播', '视频号', '其他'], datasets: [{ data: [45, 27, 16, 10, 2], backgroundColor: ['rgba(37,244,238,0.7)', 'rgba(255,138,0,0.7)', 'rgba(239,68,68,0.7)', 'rgba(7,193,96,0.7)', 'rgba(148,163,184,0.3)'], borderColor: 'transparent', borderWidth: 0, hoverOffset: 8 }] }, options: { responsive: true, cutout: '55%', plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.label + ': ' + ctx.parsed + '%'; } } } } } });
+  chartGMV = new Chart(ctxGMV, { type: 'doughnut', data: { labels: ['抖音电商', '快手电商', '淘宝直播', '视频号', '其他'], datasets: [{ data: [45, 27, 16, 10, 2], backgroundColor: ['rgba(37,244,238,0.7)', 'rgba(255,138,0,0.7)', 'rgba(239,68,68,0.7)', 'rgba(7,193,96,0.7)', 'rgba(148,163,184,0.3)'], borderColor: 'transparent', borderWidth: 0, hoverOffset: 8 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '55%', plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.label + ': ' + ctx.parsed + '%'; } } } } } });
 }
 var ctxRank = document.getElementById('chartRank');
 if (ctxRank) {
-  chartRank = new Chart(ctxRank, { type: 'bar', data: { labels: ['抖音', '微信视频号', '虎牙'], datasets: [{ label: '第一名次数', data: [19, 10, 6], backgroundColor: ['rgba(37,244,238,0.6)', 'rgba(7,193,96,0.6)', 'rgba(255,138,0,0.6)'], borderColor: [c0.dy, c0.sph, c0.hy], borderWidth: 2, borderRadius: 8, barPercentage: 0.5, _themeColors: [c0.dy, c0.sph, c0.hy] }] }, options: { responsive: true, indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.x + ' 类第一'; } } } }, scales: { x: { beginAtZero: true, max: 25, grid: { color: c0.grid }, ticks: { color: c0.text, stepSize: 5 } }, y: { grid: { display: false }, ticks: { color: c0.text } } } } });
+  chartRank = new Chart(ctxRank, { type: 'bar', data: { labels: ['抖音', '微信视频号', '虎牙'], datasets: [{ label: '第一名次数', data: [19, 10, 6], backgroundColor: ['rgba(37,244,238,0.6)', 'rgba(7,193,96,0.6)', 'rgba(255,138,0,0.6)'], borderColor: [c0.dy, c0.sph, c0.hy], borderWidth: 2, borderRadius: 8, barPercentage: 0.5, _themeColors: [c0.dy, c0.sph, c0.hy] }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.x + ' 类第一'; } } } }, scales: { x: { beginAtZero: true, max: 25, grid: { color: c0.grid }, ticks: { color: c0.text, stepSize: 5 } }, y: { grid: { display: false }, ticks: { color: c0.text } } } } });
 }
 var ctxPrice = document.getElementById('chartPrice');
 if (ctxPrice) {
-  chartPrice = new Chart(ctxPrice, { type: 'bar', data: { labels: ['抖音', '微信视频号'], datasets: [{ label: '客单价 (元)', data: [130, 205], backgroundColor: ['rgba(37,244,238,0.5)', 'rgba(7,193,96,0.5)'], borderColor: [c0.dy, c0.sph], borderWidth: 2, borderRadius: 8, barPercentage: 0.5, _themeColors: [c0.dy, c0.sph] }] }, options: { responsive: true, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return '\u00a5' + ctx.parsed.y + '/笔'; } } } }, scales: { y: { beginAtZero: true, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return '\u00a5' + v; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
+  chartPrice = new Chart(ctxPrice, { type: 'bar', data: { labels: ['抖音', '微信视频号'], datasets: [{ label: '客单价 (元)', data: [130, 205], backgroundColor: ['rgba(37,244,238,0.5)', 'rgba(7,193,96,0.5)'], borderColor: [c0.dy, c0.sph], borderWidth: 2, borderRadius: 8, barPercentage: 0.5, _themeColors: [c0.dy, c0.sph] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return '\u00a5' + ctx.parsed.y + '/笔'; } } } }, scales: { y: { beginAtZero: true, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return '\u00a5' + v; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
 }
 var ctxAge = document.getElementById('chartAge');
 if (ctxAge) {
@@ -1365,7 +1453,7 @@ if (ctxAge) {
     { label: '抖音', data: [15, 35, 30, 15, 5], borderColor: c0.dy, backgroundColor: 'rgba(37,244,238,0.1)', borderWidth: 2, pointBackgroundColor: c0.dy, pointRadius: 4, _themeColors: [c0.dy] },
     { label: '虎牙', data: [25, 44, 20, 8, 3], borderColor: c0.hy, backgroundColor: 'rgba(255,138,0,0.1)', borderWidth: 2, pointBackgroundColor: c0.hy, pointRadius: 4, _themeColors: [c0.hy] },
     { label: '视频号', data: [5, 10, 25, 39, 21], borderColor: c0.sph, backgroundColor: 'rgba(7,193,96,0.1)', borderWidth: 2, pointBackgroundColor: c0.sph, pointRadius: 4, _themeColors: [c0.sph] }
-  ] }, options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.r + '%'; } } } }, scales: { r: { beginAtZero: true, max: 50, grid: { color: c0.grid }, angleLines: { color: c0.grid }, pointLabels: { font: { size: 11 }, color: c0.text }, ticks: { display: false, stepSize: 10 } } } } });
+  ] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.r + '%'; } } } }, scales: { r: { beginAtZero: true, max: 50, grid: { color: c0.grid }, angleLines: { color: c0.grid }, pointLabels: { font: { size: 11 }, color: c0.text }, ticks: { display: false, stepSize: 10 } } } } });
 }
 var ctxShare = document.getElementById('chartShare');
 if (ctxShare) {
@@ -1373,8 +1461,32 @@ if (ctxShare) {
     { label: '个人主播最低', data: [30, 50, 50], backgroundColor: 'rgba(124,58,237,0.5)', borderColor: '#7c3aed', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 },
     { label: '个人主播最高', data: [50, 50, 50], backgroundColor: 'rgba(167,139,250,0.5)', borderColor: '#a78bfa', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 },
     { label: '公会主播最高', data: [55, 70, 50], backgroundColor: 'rgba(244,114,182,0.5)', borderColor: '#f472b6', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 }
-  ] }, options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 11 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; } } } }, scales: { y: { beginAtZero: true, max: 80, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return v + '%'; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
+  ] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 11 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; } } } }, scales: { y: { beginAtZero: true, max: 80, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return v + '%'; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
 }
+function tuneForDevice() {
+  var m = isMobile();
+  document.documentElement.classList.toggle('is-mobile', m);
+  [chartMAU, chartGMV, chartRank, chartPrice, chartAge, chartShare].forEach(function (ch) {
+    if (!ch || !ch.options) return;
+    var lg = ch.options.plugins && ch.options.plugins.legend;
+    if (lg && lg.labels) lg.labels.font = { size: m ? 10 : 12 };
+    var sc = ch.options.scales || {};
+    Object.keys(sc).forEach(function (k) {
+      var scfg = sc[k];
+      if (!scfg) return;
+      if (scfg.ticks) { scfg.ticks.font = { size: m ? 10 : 11 }; if (m) scfg.ticks.maxTicksLimit = 6; }
+      if (scfg.pointLabels) scfg.pointLabels.font = { size: m ? 9 : 11 };
+    });
+    if (ch.resize) ch.resize();
+    ch.update('none');
+  });
+}
+tuneForDevice();
+if (MOBILE_MQ) {
+  if (MOBILE_MQ.addEventListener) MOBILE_MQ.addEventListener('change', tuneForDevice);
+  else if (MOBILE_MQ.addListener) MOBILE_MQ.addListener(tuneForDevice);
+}
+window.addEventListener('orientationchange', function () { setTimeout(tuneForDevice, 400); });
 if (stored === 'dark') updateChartColors();
 </script>
 </body>
