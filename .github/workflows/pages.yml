@@ -1,8 +1,4 @@
-﻿name: Deploy GitHub Pages
-
-cd <你的仓库路径>
-New-Item -ItemType Directory -Force -Path .github\workflows | Out-Null
-@'
+﻿
 name: Deploy GitHub Pages
 
 on:
