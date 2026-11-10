@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>今晚去哪播？ · 抖音 / 虎牙 / 微信视频号</title>
-<meta name="description" content="2026年直播平台选型：去哪播最赚？抖音、虎牙、微信视频号全维度对比与35类直播适配排序">
+<title>今晚去哪播？ · 抖音 / 虎牙 / 微信视频号 / 小红书</title>
+<meta name="description" content="2026年直播平台选型：去哪播最赚？抖音、虎牙、微信视频号、小红书四平台全维度对比与35类直播适配排序">
 <script src="vendor/chart.umd.min.js"></script>
+<script src="i18n.js"></script>
 <style>
 /* ============================================================
    Design language derived from apple.com product-launch pages
@@ -75,9 +76,11 @@
   --c-dy: #0ea5e9;
   --c-hy: #f97316;
   --c-sph: #16a34a;
+  --c-xhs: #ff2442;
   --gradient-dy: linear-gradient(90deg, #0ea5e9, #38bdf8);
   --gradient-hy: linear-gradient(90deg, #f97316, #fb923c);
   --gradient-sph: linear-gradient(90deg, #16a34a, #34d399);
+  --gradient-xhs: linear-gradient(90deg, #ff2442, #ff6b81);
   --gradient-1: linear-gradient(135deg, #0071e3, #64d2ff);
   --gradient-2: linear-gradient(135deg, #0071e3, #64d2ff);
   --gradient-3: linear-gradient(135deg, #0071e3, #64d2ff);
@@ -136,9 +139,11 @@ body.dark{
   --c-dy: #64d2ff;
   --c-hy: #ff9f0a;
   --c-sph: #30d158;
+  --c-xhs: #ff6b81;
   --gradient-dy: linear-gradient(90deg, #64d2ff, #0a84ff);
   --gradient-hy: linear-gradient(90deg, #ff9f0a, #ff453a);
   --gradient-sph: linear-gradient(90deg, #30d158, #63e6be);
+  --gradient-xhs: linear-gradient(90deg, #ff6b81, #ff2442);
   --c-accent: var(--link);
   --c-accent-light: #64d2ff;
 }
@@ -294,6 +299,43 @@ body.dark .seg-thumb{ transform: translateX(100%) }
 body:not(.dark) .seg-btn[data-theme="light"], body.dark .seg-btn[data-theme="dark"]{ color: var(--site-fg) }
 .theme-toggle{ display: none }
 
+/* ---- language menu ---- */
+.lang{ position: relative; flex: none; margin-left: auto }
+.lang + .seg{ margin-left: 0 }
+.lang-btn{
+  display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 9px 0 11px;
+  border: 0; border-radius: 980px; background: var(--track); color: var(--site-fg);
+  font: inherit; font-size: calc(12px * var(--site-type)); font-weight: 600; letter-spacing: -0.01em;
+  cursor: pointer; transition: background var(--t-mid) var(--ease), transform var(--t-mid) var(--ease);
+}
+.lang-btn:hover{ background: var(--tile-hover) }
+.lang-btn:active{ transform: scale(.96) }
+.lang-btn svg{ flex: none; opacity: .72 }
+.lang-code{ display: none }
+.lang-btn .caret{ transition: transform calc(280ms * var(--site-motion)) var(--ease) }
+.lang.open .caret{ transform: rotate(180deg) }
+.lang-menu{
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 178px; max-width: calc(100vw - 24px);
+  padding: 6px; border-radius: 16px; background: var(--prompt-bg); border: 1px solid var(--hairline);
+  box-shadow: 0 14px 40px rgba(0,0,0,.18), 0 2px 10px rgba(0,0,0,.08);
+  -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+  opacity: 0; transform: translateY(-8px) scale(.97); transform-origin: top right; pointer-events: none;
+  transition: opacity calc(200ms * var(--site-motion)) var(--ease), transform calc(200ms * var(--site-motion)) var(--ease);
+  z-index: 70;
+}
+.lang.open .lang-menu{ opacity: 1; transform: none; pointer-events: auto }
+.lang-item{
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;
+  padding: 9px 10px; border: 0; border-radius: 11px; background: none; color: var(--site-fg);
+  font: inherit; font-size: calc(14px * var(--site-type)); letter-spacing: -0.015em; text-align: left; cursor: pointer;
+  transition: background calc(160ms * var(--site-motion)) var(--ease);
+}
+.lang-item:hover{ background: var(--table-hover-bg) }
+.lang-item[aria-checked="true"]{ font-weight: 600 }
+.lang-item .tick{ opacity: 0; flex: none; color: var(--site-accent) }
+.lang-item[aria-checked="true"] .tick{ opacity: 1 }
+@media (prefers-reduced-transparency: reduce){ .lang-menu{ backdrop-filter: none; -webkit-backdrop-filter: none } }
+
 /* ---- hero: first screen, no mask, photo shows through ---- */
 .hero{
   position: relative; z-index: 1;
@@ -402,18 +444,20 @@ h3{
 .glass-card:hover{ transform: scale(1.012); background: var(--tile-hover); border-color: var(--hairline) }
 .glass-card:active{ transform: scale(.995) }
 
-.platform-grid{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: calc(64px * var(--site-space)) }
+.platform-grid{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-bottom: calc(64px * var(--site-space)) }
 .platform-card{ position: relative; overflow: hidden; padding-top: 32px }
 .platform-card::before{ content: ''; position: absolute; inset: 0 0 auto; height: 96px; opacity: .16;
   background: radial-gradient(120% 100% at 20% 0%, currentColor, transparent 70%) }
 .platform-card.dy::before{ color: var(--c-dy) }
 .platform-card.hy::before{ color: var(--c-hy) }
 .platform-card.sph::before{ color: var(--c-sph) }
+.platform-card.xhs::before{ color: var(--c-xhs) }
 .platform-card .card-header{ display: flex; align-items: center; gap: 10px; margin-bottom: 6px; position: relative }
 .platform-dot{ width: 8px; height: 8px; border-radius: 50%; flex: none; background: currentColor }
 .platform-card.dy, .persona-card.dy, .stat-label.dy, .platform-dot.dy{ color: var(--c-dy) }
 .platform-card.hy, .persona-card.hy, .stat-label.hy, .platform-dot.hy{ color: var(--c-hy) }
 .platform-card.sph, .persona-card.sph, .stat-label.sph, .platform-dot.sph{ color: var(--c-sph) }
+.platform-card.xhs, .persona-card.xhs, .stat-label.xhs, .platform-dot.xhs{ color: var(--c-xhs) }
 .platform-card .card-title{ font-size: calc(21px * var(--site-type)); font-weight: 600; letter-spacing: -0.01em; color: var(--site-fg) }
 .platform-card .card-role{ font-size: calc(14px * var(--site-type)); font-weight: 600; letter-spacing: -0.01em; color: var(--role-color); margin-bottom: 14px }
 .platform-card p{ font-size: calc(14px * var(--site-type)); letter-spacing: -0.016em; line-height: 1.47; color: var(--site-muted) }
@@ -449,6 +493,7 @@ h3{
 .stat-value.sv-dy{ color: var(--c-dy) }
 .stat-value.sv-hy{ color: var(--c-hy) }
 .stat-value.sv-sph{ color: var(--c-sph) }
+.stat-value.sv-xhs{ color: var(--c-xhs) }
 .stat-value small{ font-size: calc(17px * var(--site-type)); font-weight: 400; letter-spacing: -0.02em; color: var(--site-muted); margin-left: 8px }
 .stat-bar{ height: 5px; border-radius: 99px; background: var(--bar-bg); overflow: hidden }
 .stat-bar-fill{ height: 100%; border-radius: 99px; width: 0; transform-origin: left;
@@ -456,6 +501,7 @@ h3{
 .stat-bar-fill.dy{ background: var(--gradient-dy) }
 .stat-bar-fill.hy{ background: var(--gradient-hy) }
 .stat-bar-fill.sph{ background: var(--gradient-sph) }
+.stat-bar-fill.xhs{ background: var(--gradient-xhs) }
 .stat-desc{ font-size: calc(13px * var(--site-type)); letter-spacing: -0.01em; line-height: 1.4; color: var(--site-muted); margin-top: 8px }
 .animate-in .stat-bar-fill{ width: var(--w) }
 
@@ -479,6 +525,7 @@ td.dim{ font-weight: 600; color: var(--site-fg); white-space: nowrap; width: 130
 .c-dy{ color: var(--c-dy); font-weight: 600 }
 .c-hy{ color: var(--c-hy); font-weight: 600 }
 .c-sph{ color: var(--c-sph); font-weight: 600 }
+.c-xhs{ color: var(--c-xhs); font-weight: 600 }
 .rank-cell{ white-space: nowrap; color: var(--site-fg) }
 .rank-cell b{ font-weight: 600 }
 .rank-cell .sep{ color: var(--muted-2); margin: 0 5px; font-style: normal; opacity: .7 }
@@ -494,6 +541,9 @@ td.dim{ font-weight: 600; color: var(--site-fg); white-space: nowrap; width: 130
 }
 .cat-header:first-of-type{ margin-top: calc(24px * var(--site-space)) }
 .cat-header h3{ margin-bottom: 0; font-size: calc(clamp(21px, 2.2vw, 28px) * var(--site-type)) }
+.tbl-rank{ min-width: 700px }
+.tbl-5{ min-width: 780px }
+
 .cat-badge{
   font-size: calc(12px * var(--site-type)); font-weight: 600; letter-spacing: -0.01em;
   color: var(--site-muted); background: var(--site-surface);
@@ -505,13 +555,13 @@ td.dim{ font-weight: 600; color: var(--site-fg); white-space: nowrap; width: 130
 .warn-card{ border-radius: calc(var(--site-radius) * .64); padding: 24px }
 .warn-card .warn-title{ font-size: calc(17px * var(--site-type)); font-weight: 600; letter-spacing: -0.02em; color: var(--warn-title); margin-bottom: 10px }
 .warn-card p{ font-size: calc(14px * var(--site-type)); letter-spacing: -0.016em; line-height: 1.47; color: var(--site-muted) }
-.policy-grid{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: calc(40px * var(--site-space)) }
+.policy-grid{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: calc(40px * var(--site-space)) }
 .policy-card{ border-radius: calc(var(--site-radius) * .64); padding: 24px;
   transition: transform var(--t-mid) var(--ease), background var(--t-mid) var(--ease) }
 .policy-card:hover{ transform: translateY(-4px); background: var(--tile-hover) }
 .policy-card .policy-title{ font-size: calc(17px * var(--site-type)); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px; display: flex; align-items: center; gap: 9px }
 .policy-card p{ font-size: calc(14px * var(--site-type)); letter-spacing: -0.016em; line-height: 1.47; color: var(--site-muted) }
-.persona-grid{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: calc(56px * var(--site-space)) }
+.persona-grid{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-bottom: calc(56px * var(--site-space)) }
 .persona-card{ border-radius: var(--site-radius); padding: 32px 28px; position: relative; overflow: hidden;
   transition: transform var(--t-mid) var(--ease), background var(--t-mid) var(--ease) }
 .persona-card:hover{ transform: scale(1.012); background: var(--tile-hover) }
@@ -655,10 +705,10 @@ body.dark .ac:hover{ color: #64d2ff }
 
 /* ---- responsive: Apple columns 1068 / 734 ---- */
 @media (max-width: 1068px){
-  .platform-grid, .warn-grid, .policy-grid, .persona-grid{ grid-template-columns: 1fr }
+  .platform-grid, .warn-grid, .policy-grid, .persona-grid{ grid-template-columns: minmax(0, 1fr) }
   .steps-grid, .next-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)) }
-  .chart-grid{ grid-template-columns: 1fr }
-  .sources-grid{ grid-template-columns: 1fr }
+  .chart-grid{ grid-template-columns: minmax(0, 1fr) }
+  .sources-grid{ grid-template-columns: minmax(0, 1fr) }
 }
 @media (max-width: 734px){
   :root{ --pad: 16px }
@@ -691,6 +741,11 @@ body.dark .ac:hover{ color: #64d2ff }
     mask-image: linear-gradient(to right, #000 calc(100% - 22px), transparent) }
   .nav-link{ font-size: calc(13px * var(--site-type)); padding: 12px 0 }
   .nav-link.active::after{ bottom: 6px }
+  .nav-inner{ gap: 12px; padding: 0 16px }
+  .lang-cur{ display: none }
+  .lang-code{ display: inline; font-size: calc(12px * var(--site-type)) }
+  .lang-btn{ padding: 0 8px; gap: 5px }
+  .lang-menu{ min-width: 168px }
   .seg-btn{ width: 30px; height: 24px }
   .hero-meta span{ font-size: calc(11px * var(--site-type)); padding: 4px 10px }
 
@@ -711,6 +766,8 @@ body.dark .ac:hover{ color: #64d2ff }
     letter-spacing: -0.01em; text-align: right; margin: -6px 2px 10px }
   .table-scroll{ overflow: auto; margin-top: 4px }
   table{ min-width: 540px; font-size: calc(13px * var(--site-type)) }
+  .tbl-rank{ min-width: 640px }
+  .tbl-5{ min-width: 700px }
   th, td{ padding: 11px 12px }
   th{ background: var(--thead-solid); font-size: calc(11px * var(--site-type)) }
   td{ letter-spacing: -0.014em; line-height: 1.42 }
@@ -765,7 +822,7 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 </div>
 <nav class="nav">
   <div class="nav-inner">
-    <span class="nav-brand">今晚去哪播？</span>
+    <span class="nav-brand" id="navBrand" data-no-i18n>今晚去哪播？</span>
     <div class="nav-scroll">
     <a class="nav-link" href="#summary">摘要</a>
     <a class="nav-link" href="#dashboard">数据看板</a>
@@ -776,6 +833,21 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <a class="nav-link" href="#types">类型排序</a>
     <a class="nav-link" href="#conclusion">结论</a>
     <a class="nav-link" href="#sources">来源</a>
+    </div>
+    <div class="lang" id="langMenu">
+      <button class="lang-btn" type="button" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="界面语言">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.3 9.2h17.4M3.3 14.8h17.4M12 3c2.6 3.1 3.9 6.1 3.9 9s-1.3 5.9-3.9 9c-2.6-3.1-3.9-6.1-3.9-9s1.3-5.9 3.9-9z"/></svg>
+        <span class="lang-cur" id="langCur">简体</span>
+        <span class="lang-code" id="langCode" aria-hidden="true">中</span>
+        <svg class="caret" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2.6 4.6 6 8l3.4-3.4"/></svg>
+      </button>
+      <div class="lang-menu" id="langList" role="radiogroup" aria-label="界面语言" data-no-i18n>
+        <button class="lang-item" type="button" role="radio" data-lang="zh-CN" aria-checked="true"><span>简体中文</span><svg class="tick" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2.4 6.4l2.4 2.4 4.8-5.2"/></svg></button>
+        <button class="lang-item" type="button" role="radio" data-lang="zh-TW" aria-checked="false"><span>繁體中文</span><svg class="tick" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2.4 6.4l2.4 2.4 4.8-5.2"/></svg></button>
+        <button class="lang-item" type="button" role="radio" data-lang="en" aria-checked="false"><span>English</span><svg class="tick" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2.4 6.4l2.4 2.4 4.8-5.2"/></svg></button>
+        <button class="lang-item" type="button" role="radio" data-lang="ja" aria-checked="false"><span>日本語</span><svg class="tick" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2.4 6.4l2.4 2.4 4.8-5.2"/></svg></button>
+        <button class="lang-item" type="button" role="radio" data-lang="ru" aria-checked="false"><span>Русский</span><svg class="tick" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2.4 6.4l2.4 2.4 4.8-5.2"/></svg></button>
+      </div>
     </div>
     <div class="seg" role="group" aria-label="外观主题">
       <span class="seg-thumb" aria-hidden="true"></span>
@@ -788,10 +860,10 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
     <p class="hero-tag reveal">2026 · 平台选型决策</p>
-    <h1 class="reveal d1 art-title">
+    <h1 class="reveal d1 art-title" id="artTitle" data-no-i18n>
       <span class="ac" style="--s:1.3;--r:-3deg;--y:-4px">今</span><span class="ac" style="--s:1.1;--r:2deg;--y:2px">晚</span><span class="ac" style="--s:0.8;--r:-1deg;--y:-2px">去</span><span class="ac" style="--s:1.5;--r:3deg;--y:-6px">哪</span><span class="ac" style="--s:1.2;--r:-2deg;--y:0px">播</span><span class="ac" style="--s:0.7;--r:0deg;--y:4px">？</span>
     </h1>
-    <p class="hero-sub reveal d2">抖音 · 虎牙 · 微信视频号 —— 35 类直播到底哪家用</p>
+    <p class="hero-sub reveal d2">抖音 · 虎牙 · 微信视频号 · 小红书 —— 35 类直播到底哪家用</p>
     <div class="hero-meta reveal d3">
       <span>报告日期：2026 年 11 月 5 日</span>
       <span>数据窗口：2025–2026 年初公开数据</span>
@@ -809,27 +881,29 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
   <div class="wrap">
     <p class="kicker reveal">01 · 摘要与核心结论</p>
     <h2 class="reveal">先看结论。</h2>
-    <p class="lede reveal">本报告面向"在抖音、虎牙、微信视频号三个备选平台中做出直播选型"这一决策需求，基于 2025–2026 年初公开数据，从平台基本面、观众画像、用户消费能力、平台政策四个维度进行对比，并对 8 大类 35 个细分直播类型逐一给出三平台适合度排序。</p>
-    <h3 class="reveal">三平台定位</h3>
+    <p class="lede reveal">本报告面向"在抖音、虎牙、微信视频号、小红书四个备选平台中做出直播选型"这一决策需求，基于 2025–2026 年初公开数据，从平台基本面、观众画像、用户消费能力、平台政策四个维度进行对比，并对 8 大类 35 个细分直播类型逐一给出四平台适合度排序。</p>
+    <h3 class="reveal">四平台定位</h3>
     <div class="platform-grid">
       <div class="glass-card platform-card dy reveal"><div class="card-header"><i class="platform-dot dy"></i><span class="card-title">抖音</span></div><div class="card-role">全能选手</div><p>除游戏垂类和信任型高客单外，几乎全是主场；用持续的内容产出换平台流量，规模天花板最高，竞争也最激烈。</p></div>
       <div class="glass-card platform-card hy reveal d1"><div class="card-header"><i class="platform-dot hy"></i><span class="card-title">虎牙</span></div><div class="card-role">专科选手</div><p>游戏垂类（含户外、语音陪伴）无对手，垂类之外生态薄弱，选它前先确认"播的是不是游戏"。</p></div>
       <div class="glass-card platform-card sph reveal d2"><div class="card-header"><i class="platform-dot sph"></i><span class="card-title">微信视频号</span></div><div class="card-role">价值选手</div><p>赢得的都是高客单、高信任、高复购的类目；冷启动慢，但私域资产归自己，适合做长期生意。</p></div>
+      <div class="glass-card platform-card xhs reveal d3"><div class="card-header"><i class="platform-dot xhs"></i><span class="card-title">小红书</span></div><div class="card-role">审美选手</div><p>高客单女性生活方式的主场：买手直播、主理人品牌、家居与中古。盘子小、转化链路长，靠审美与搜索心智取胜，投流与白牌性价比都不是它的路。</p></div>
     </div>
     <h3 class="reveal" style="margin-top:48px">选型口诀</h3>
     <div class="steps-grid">
       <div class="step-card reveal"><div class="step-num">STEP 01</div><div class="step-title">播游戏 / 户外 / 语音陪聊</div><div class="step-arrow">→ 虎牙</div><div class="step-desc">抖音游戏区可作双开备选</div></div>
       <div class="step-card reveal d1"><div class="step-num">STEP 02</div><div class="step-title">卖高客单、做信任、吃复购</div><div class="step-arrow">→ 视频号</div><div class="step-desc">信任型生意的第一主场</div></div>
-      <div class="step-card reveal d2"><div class="step-num">STEP 03</div><div class="step-title">其他一切，且能持续做内容</div><div class="step-arrow">→ 抖音</div><div class="step-desc">用内容换流量，规模最大</div></div>
-      <div class="step-card reveal d3"><div class="step-num">STEP 04</div><div class="step-title">拿不准 / 想稳健</div><div class="step-arrow">→ 双平台联动</div><div class="step-desc">抖音主号获客 + 视频号私域沉淀</div></div>
+      <div class="step-card reveal d2"><div class="step-num">STEP 03</div><div class="step-title">卖好看的生活方式、做女性向高客单</div><div class="step-arrow">→ 小红书</div><div class="step-desc">买手与主理人气质独占</div></div>
+      <div class="step-card reveal d3"><div class="step-num">STEP 04</div><div class="step-title">其他一切，且能持续做内容</div><div class="step-arrow">→ 抖音</div><div class="step-desc">用内容换流量，规模最大</div></div>
+      
     </div>
   </div>
 </section>
 <section id="dashboard" class="theme-grey">
   <div class="wrap">
     <p class="kicker reveal">02 · 数据看板</p>
-    <h2 class="reveal">一眼看懂三平台。</h2>
-    <p class="lede reveal">用图表直观呈现三大平台在用户规模、市场占有、变现效率等关键指标上的差异。</p>
+    <h2 class="reveal">一眼看懂四平台。</h2>
+    <p class="lede reveal">用图表直观呈现四平台在用户规模、市场占有、变现效率等关键指标上的差异。</p>
     <div class="chart-grid">
       <div class="chart-box reveal"><h4>月活用户规模 (亿)</h4><div class="cwrap"><canvas id="chartMAU"></canvas></div></div>
       <div class="chart-box reveal d1"><h4>直播电商 GMV 市场份额 (2025)</h4><div class="cwrap"><canvas id="chartGMV"></canvas></div></div>
@@ -838,13 +912,14 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     </div>
     <div class="chart-grid" style="margin-top:24px">
       <div class="chart-box reveal"><h4>用户年龄分布对比</h4><div class="cwrap"><canvas id="chartAge"></canvas></div></div>
-      <div class="chart-box reveal d1"><h4>主播打赏分成比例 (%)</h4><div class="cwrap"><canvas id="chartShare"></canvas></div></div>
+      <div class="chart-box reveal d1"><h4>主播打赏分成比例 (%) · 小红书为第三方口径</h4><div class="cwrap"><canvas id="chartShare"></canvas></div></div>
     </div>
     <h3 class="reveal" style="margin-top:48px">35 类直播中排第一的次数</h3>
     <div class="stats-section reveal" id="statsBars">
-      <div class="stat-item"><div class="stat-header"><span class="stat-label"><i class="platform-dot dy"></i> 抖音</span><span class="stat-value sv-dy">19<small>类</small></span></div><div class="stat-bar"><div class="stat-bar-fill dy" style="--w:54.3%"></div></div><div class="stat-desc">泛娱乐、大多数电商、知识、本地生活、生活形态类</div></div>
-      <div class="stat-item"><div class="stat-header"><span class="stat-label"><i class="platform-dot sph"></i> 微信视频号</span><span class="stat-value sv-sph">10<small>类</small></span></div><div class="stat-bar"><div class="stat-bar-fill sph" style="--w:28.6%"></div></div><div class="stat-desc">高客单电商、专业资质类、房产、情感、政务/企业、演唱会、慢直播</div></div>
+      <div class="stat-item"><div class="stat-header"><span class="stat-label"><i class="platform-dot dy"></i> 抖音</span><span class="stat-value sv-dy">18<small>类</small></span></div><div class="stat-bar"><div class="stat-bar-fill dy" style="--w:51.4%"></div></div><div class="stat-desc">泛娱乐、大多数电商、知识、本地生活、生活形态类</div></div>
+      <div class="stat-item"><div class="stat-header"><span class="stat-label"><i class="platform-dot sph"></i> 微信视频号</span><span class="stat-value sv-sph">8<small>类</small></span></div><div class="stat-bar"><div class="stat-bar-fill sph" style="--w:22.9%"></div></div><div class="stat-desc">高客单信任电商、专业资质类、情感、政务/企业、演唱会</div></div>
       <div class="stat-item"><div class="stat-header"><span class="stat-label"><i class="platform-dot hy"></i> 虎牙</span><span class="stat-value sv-hy">6<small>类</small></span></div><div class="stat-bar"><div class="stat-bar-fill hy" style="--w:17.1%"></div></div><div class="stat-desc">游戏全品类、户外、语音陪伴、棋牌（需资质）</div></div>
+      <div class="stat-item"><div class="stat-header"><span class="stat-label"><i class="platform-dot xhs"></i> 小红书</span><span class="stat-value sv-xhs">3<small>类</small></span></div><div class="stat-bar"><div class="stat-bar-fill xhs" style="--w:8.6%"></div></div><div class="stat-desc">房产线索直播、体育赛事（2026 世界杯）、citywalk 慢直播</div></div>
     </div>
   </div>
 </section>
@@ -852,19 +927,19 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 <section id="basic">
   <div class="wrap">
     <p class="kicker reveal">03 · 平台基本面</p>
-    <h2 class="reveal">三种体量，三种定位。</h2>
-    <p class="lede reveal">抖音是"流量海洋"，虎牙是"垂直鱼塘"，视频号是"熟人社会"。三者的月活体量相差一个数量级，但视频号用户的单次停留质量和信任度更高，虎牙观众的付费目的性最强。</p>
+    <h2 class="reveal">四种体量，四种定位。</h2>
+    <p class="lede reveal">抖音是"流量海洋"，虎牙是"垂直鱼塘"，视频号是"熟人社会"，小红书是"审美买手店"。四者的月活体量相差一个数量级，但视频号用户的单次停留质量和信任度更高，虎牙观众的付费目的性最强。</p>
 
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
-        <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th></tr></thead>
+      <table class="tbl-sticky tbl-5">
+        <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th><th>小红书</th></tr></thead>
         <tbody>
-          <tr><td class="dim">母公司</td><td>字节跳动</td><td>腾讯控股</td><td>腾讯（微信团队直营）</td></tr>
-          <tr><td class="dim">月活体量</td><td>10 亿+（含极速版），覆盖约 71% 中国网民</td><td>1.62 亿（2025 年 Q3）</td><td>12 亿+（微信大盘），DAU 约 6.2 亿</td></tr>
-          <tr><td class="dim">平台定位</td><td>全内容生态：短视频+直播+电商+本地生活</td><td>游戏直播垂直平台，正转型"游戏生态服务商"</td><td>微信内的直播/短视频，长在社交关系链上</td></tr>
-          <tr><td class="dim">使用时长</td><td>月人均 46.5 小时（日均 1.5 小时+）</td><td>目的性观看，看准了才来</td><td>日均 71–72 分钟；直播平均停留 15 分钟（为抖音的 1.8 倍）</td></tr>
-          <tr><td class="dim">2025 GMV</td><td>约 6800 亿元（电商全年）</td><td>非电商主战场</td><td>约 3500 亿元（直播全年），同比增长 35%</td></tr>
+          <tr><td class="dim">母公司</td><td>字节跳动</td><td>腾讯控股</td><td>腾讯（微信团队直营）</td><td>行吟信息科技（上海）有限公司／小红书科技有限公司</td></tr>
+          <tr><td class="dim">月活体量</td><td>10 亿+（含极速版），覆盖约 71% 中国网民</td><td>1.62 亿（2025 年 Q3）</td><td>12 亿+（微信大盘），DAU 约 6.2 亿</td><td>MAU 2.42 亿（QuestMobile 2025）；官方口径 3.5–4 亿（含海外），DAU 约 1.2 亿</td></tr>
+          <tr><td class="dim">平台定位</td><td>全内容生态：短视频+直播+电商+本地生活</td><td>游戏直播垂直平台，正转型"游戏生态服务商"</td><td>微信内的直播/短视频，长在社交关系链上</td><td>生活方式社区 + 买手电商，种草—搜索—交易站内闭环</td></tr>
+          <tr><td class="dim">使用时长</td><td>月人均 46.5 小时（日均 1.5 小时+）</td><td>目的性观看，看准了才来</td><td>日均 71–72 分钟；直播平均停留 15 分钟（为抖音的 1.8 倍）</td><td>人均单日约 74–77 分钟（QuestMobile），日均打开 16 次（官方 2025）</td></tr>
+          <tr><td class="dim">2025 GMV</td><td>约 6800 亿元（电商全年）</td><td>非电商主战场</td><td>约 3500 亿元（直播全年），同比增长 35%</td><td><span class="c-xhs">广义约 8000–8500 亿元</span>（第三方测算，含种草外跳）；站内直播口径约 600–2000 亿元</td></tr>
         </tbody>
       </table>
     </div>
@@ -876,17 +951,17 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
   <div class="wrap">
     <p class="kicker reveal">04 · 观众画像</p>
     <h2 class="reveal">观众是谁，决定平台是谁。</h2>
-    <p class="lede reveal">目标受众是年轻男性玩家，选虎牙；是 30 岁以上女性、家庭消费人群或中老年，视频号几乎没有对手；需要泛流量、全年龄段覆盖，选抖音。</p>
+    <p class="lede reveal">目标受众是年轻男性玩家，选虎牙；是 30 岁以上女性、家庭消费人群或中老年，视频号几乎没有对手；是一二线 18–34 岁女性、卖高客单的好设计，小红书几乎没有对手；需要泛流量、全年龄段覆盖，选抖音。</p>
 
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
-        <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th></tr></thead>
+      <table class="tbl-sticky tbl-5">
+        <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th><th>小红书</th></tr></thead>
         <tbody>
-          <tr><td class="dim">年龄</td><td>18–35 岁为主，24 岁以下是最大群体</td><td>年轻男性为主，约 69% 在 25 岁以内</td><td>明显偏成熟：30–50 岁为消费主力；50 岁以上占比 20.9%</td></tr>
-          <tr><td class="dim">性别</td><td>女性 52.8%，略多于男性</td><td>男性约 80%，绝对主导</td><td>用户男女约 53:47，购买用户 78% 为女性</td></tr>
-          <tr><td class="dim">地域</td><td>一二线为主，全域覆盖</td><td>无明显下沉特征，广东等游戏大省活跃</td><td>县域用户占 39%，三四线及县域活跃度高</td></tr>
-          <tr><td class="dim">观看心态</td><td>兴趣驱动，刷到即看，忠诚度低</td><td>目的性强：看特定游戏/战队/主播</td><td>信任驱动：朋友点赞/推荐进入</td></tr>
+          <tr><td class="dim">年龄</td><td>18–35 岁为主，24 岁以下是最大群体</td><td>年轻男性为主，约 69% 在 25 岁以内</td><td>明显偏成熟：30–50 岁为消费主力；50 岁以上占比 20.9%</td><td>18–34 岁占 83%+：18–24 约 43%、25–34 约 37%</td></tr>
+          <tr><td class="dim">性别</td><td>女性 52.8%，略多于男性</td><td>男性约 80%，绝对主导</td><td>用户男女约 53:47，购买用户 78% 为女性</td><td>女性约 70%（男女约 3:7），女性用户 TGI 162.5 为全网第一</td></tr>
+          <tr><td class="dim">地域</td><td>一二线为主，全域覆盖</td><td>无明显下沉特征，广东等游戏大省活跃</td><td>县域用户占 39%，三四线及县域活跃度高</td><td>一二线占 50%+，一线+新一线 37.2%（QuestMobile）</td></tr>
+          <tr><td class="dim">观看心态</td><td>兴趣驱动，刷到即看，忠诚度低</td><td>目的性强：看特定游戏/战队/主播</td><td>信任驱动：朋友点赞/推荐进入</td><td>决策驱动：70%+ 月活有搜索行为，先种草、再比价、后下单</td></tr>
         </tbody>
       </table>
     </div>
@@ -897,18 +972,18 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 <section id="spend">
   <div class="wrap">
     <p class="kicker reveal">05 · 用户消费能力</p>
-    <h2 class="reveal">抖音赚"量"，视频号赚"价"，虎牙赚"情感"。</h2>
-    <p class="lede reveal">需要注意：虎牙赖以生存的打赏大盘正处于行业性收缩周期（"榜一大哥"现象退潮），天花板可见。</p>
+    <h2 class="reveal">抖音赚量，视频号赚价，小红书赚审美，虎牙赚情感。</h2>
+    <p class="lede reveal">小红书的代价是规模：客单价最高，可盘子最小、下单转化率仅约 1%。需要注意：虎牙赖以生存的打赏大盘正处于行业性收缩周期（"榜一大哥"现象退潮），天花板可见。</p>
 
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
-        <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th></tr></thead>
+      <table class="tbl-sticky tbl-5">
+        <thead><tr><th>维度</th><th>抖音</th><th>虎牙</th><th>微信视频号</th><th>小红书</th></tr></thead>
         <tbody>
-          <tr><td class="dim">电商客单价</td><td>约 130 元/笔</td><td>非电商主战场</td><td><span class="c-sph">约 205 元/笔</span>，高出抖音约 58%</td></tr>
-          <tr><td class="dim">打赏生态</td><td>体量最大，但分的人最多</td><td>打赏文化最成熟，但大盘收缩</td><td>打赏弱于前两者，私域转化价值高</td></tr>
-          <tr><td class="dim">付费习惯</td><td>冲动消费、价格敏感，9.9 元引流款有效</td><td>情感付费：为技术/陪伴/归属感刷礼物</td><td>信任消费：高客单、重复购，服饰类订单占 38%</td></tr>
-          <tr><td class="dim">投流 ROI</td><td>约 1:2（CPM 约 25 元）</td><td>以公会资源换流量</td><td>早期可达 1:100，稳定约 1:10</td></tr>
+          <tr><td class="dim">电商客单价</td><td>约 130 元/笔</td><td>非电商主战场</td><td><span class="c-sph">约 205 元/笔</span>，高出抖音约 58%</td><td><span class="c-xhs">约 500 元/笔</span>（官方口径），买手直播常见 800–1500 元</td></tr>
+          <tr><td class="dim">打赏生态</td><td>体量最大，但分的人最多</td><td>打赏文化最成熟，但大盘收缩</td><td>打赏弱于前两者，私域转化价值高</td><td>打赏集中于娱播/团播，笔记礼物 2026-05 才内测；带货靠佣金而非打赏</td></tr>
+          <tr><td class="dim">付费习惯</td><td>冲动消费、价格敏感，9.9 元引流款有效</td><td>情感付费：为技术/陪伴/归属感刷礼物</td><td>信任消费：高客单、重复购，服饰类订单占 38%</td><td>为审美与生活方式付费：高客单、低退货（第三方口径直播退货率约 12%）</td></tr>
+          <tr><td class="dim">投流 ROI</td><td>约 1:2（CPM 约 25 元）</td><td>以公会资源换流量</td><td>早期可达 1:100，稳定约 1:10</td><td>以商单/聚光为主；站内下单转化率约 0.7%–1.2%，种草强、闭环短</td></tr>
         </tbody>
       </table>
     </div>
@@ -920,17 +995,17 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
   <div class="wrap">
     <p class="kicker reveal">06 · 平台政策</p>
     <h2 class="reveal">读懂规则，再签任何字。</h2>
-    <p class="lede reveal">三家都是实名认证即可开播，差异主要在电商门槛、分成结构与公会约束。政策动态调整频繁，签约前请以官方后台最新规则为准。</p>
+    <p class="lede reveal">四家都是实名认证即可开播，差异在电商门槛、分成结构与公会约束；小红书的分成比例至今未官方公布。政策动态调整频繁，签约前请以官方后台最新规则为准。</p>
 
     <h3 class="reveal">开播与开店门槛</h3>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
-        <thead><tr><th>事项</th><th>抖音</th><th>虎牙</th><th>微信视频号</th></tr></thead>
+      <table class="tbl-sticky tbl-5">
+        <thead><tr><th>事项</th><th>抖音</th><th>虎牙</th><th>微信视频号</th><th>小红书</th></tr></thead>
         <tbody>
-          <tr><td class="dim">开播门槛</td><td>实名认证即可开播</td><td>实名即可，获取流量基本必须挂靠公会</td><td>实名即可，个人开播最友好</td></tr>
-          <tr><td class="dim">开店条件</td><td>0 元入驻/0 元试运营；个人身份证可开个人店（年成交上限约 10 万元）</td><td>电商基础设施弱，非变现主路径</td><td>微信小店 0 保证金试运营（支持 3000+ 类目）</td></tr>
-          <tr><td class="dim">保证金</td><td>按类目 2000–2 万元（可退）</td><td>—</td><td>浮动与类目保证金取高者（普通数千至 2 万元）</td></tr>
+          <tr><td class="dim">开播门槛</td><td>实名认证即可开播</td><td>实名即可，获取流量基本必须挂靠公会</td><td>实名即可，个人开播最友好</td><td>实名+满 18 岁可开内容直播；带货需专业号，创作者认证约 5000 粉</td></tr>
+          <tr><td class="dim">开店条件</td><td>0 元入驻/0 元试运营；个人身份证可开个人店（年成交上限约 10 万元）</td><td>电商基础设施弱，非变现主路径</td><td>微信小店 0 保证金试运营（支持 3000+ 类目）</td><td>专业号+店铺，二奢/食品等特殊类目需报白；2025-09 起百万免佣仅留 0.6% 支付成本</td></tr>
+          <tr><td class="dim">保证金</td><td>按类目 2000–2 万元（可退）</td><td>—</td><td>浮动与类目保证金取高者（普通数千至 2 万元）</td><td>类目保证金与店铺保证金取高者；娱播公会入驻保证金 2 万元（2025-09 起）</td></tr>
         </tbody>
       </table>
     </div>
@@ -944,6 +1019,7 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
           <tr><td class="dim"><span class="c-dy">抖音</span></td><td>30%–50%</td><td>30%–55%，S 级头部公会可更高</td><td>平台与公会按 70%/50%/40% 三档结算</td></tr>
           <tr><td class="dim"><span class="c-hy">虎牙</span></td><td>约 50% 起</td><td>30%–70%，取决于协议档位</td><td>月佣金需超过 100 金元宝方可提现</td></tr>
           <tr><td class="dim"><span class="c-sph">视频号</span></td><td>固定 50%</td><td>实际约 35%–50%</td><td>提现时另行扣税</td></tr>
+          <tr><td class="dim"><span class="c-xhs">小红书</span></td><td>未官方公布，第三方口径基础约 50%</td><td>2025-09-01 起娱播公会全面开放，叠加任务最高约 81%–90%（第三方）</td><td>礼物以薯币计价（1 元 = 7 薯币），收益按月结算</td></tr>
         </tbody>
       </table>
     </div>
@@ -962,21 +1038,25 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
         <div class="policy-title"><i class="platform-dot sph"></i> 视频号 · 无公会依赖</div>
         <p>公会可选，个人开播完全跑得通，个人主播打赏分成固定 50%。</p>
       </div>
+      <div class="policy-card reveal d3">
+        <div class="policy-title"><i class="platform-dot xhs"></i> 小红书 · 公会刚起步</div>
+        <p>娱乐直播公会 2025-09-01 才全面开放入驻（保证金 2 万元，营业性演出许可证 6 个月内补齐）；带货侧走买手与蒲公英而非公会，多数头部公会尚未入驻。</p>
+      </div>
     </div>
 
     <h3 class="reveal" style="margin-top:40px">内容监管与合规红线</h3>
     <div class="warn-grid">
       <div class="warn-card reveal">
         <div class="warn-title">数字人 / 无人直播</div>
-        <p>抖音严禁无人直播，虚拟人直播必须真人驱动 + 实名认证 + 标明 AI 生成；视频号全面禁止数字人直播，使用虚拟形象直接封号；录播挂机在所有平台均属封号红线。</p>
+        <p>抖音严禁无人直播，虚拟人直播必须真人驱动 + 实名认证 + 标明 AI 生成；视频号全面禁止数字人直播，使用虚拟形象直接封号；小红书 2026-08 起强制 AI 声明，未标注即限流，已处置 AI 托管账号 42 万。录播挂机在所有平台均属封号红线。</p>
       </div>
       <div class="warn-card reveal d1">
         <div class="warn-title">资质类目</div>
-        <p>财经、医疗、法律类直播各平台均要求执业/行业资质认证；珠宝文玩在抖音属定向准入类目；棋牌类目受强监管。无资质情况下，以上方向应一票否决。</p>
+        <p>财经、医疗、法律类直播各平台均要求执业/行业资质认证；珠宝文玩在抖音属定向准入类目；棋牌类目受强监管；小红书自 2026-02-10 起禁止买手在直播间分享 OTC 药品、保健食品、特医食品与医疗器械，学科类培训也不得以直播推广。无资质情况下，以上方向应一票否决。</p>
       </div>
       <div class="warn-card reveal d2">
         <div class="warn-title">监管差异</div>
-        <p>抖音审核最严、规则最细，违规轻则限流重则封禁；虎牙对涉赌、低俗内容打击严格；视频号依托微信实名体系，违规会连带影响微信号本身，封号代价最高。</p>
+        <p>抖音审核最严、规则最细，违规轻则限流重则封禁；虎牙对涉赌、低俗内容打击严格；视频号依托微信实名体系，违规会连带影响微信号本身，封号代价最高；小红书对站外导流最严，《交易导流违规管理细则》下三次违规即永久关闭买手权限。</p>
       </div>
     </div>
   </div>
@@ -987,20 +1067,20 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
   <div class="wrap">
     <p class="kicker reveal">07 · 类型排序</p>
     <h2 class="reveal">35 类直播，逐一排序。</h2>
-    <p class="lede reveal">"A &gt; B &gt; C" 表示 A 最适合、C 最不适合。排序综合目标观众与平台用户的重合度、平台生态成熟度、变现效率、政策门槛四个因素。<b>加粗平台为该类型第一名。</b></p>
+    <p class="lede reveal">"A &gt; B &gt; C &gt; D" 表示 A 最适合、D 最不适合。排序综合目标观众与平台用户的重合度、平台生态成熟度、变现效率、政策门槛四个因素。<b>加粗平台为该类型第一名。</b></p>
 
     <!-- A: Gaming -->
     <div class="cat-header reveal"><h3>A · 游戏直播</h3><span class="cat-badge">5 类</span></div>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
+      <table class="tbl-sticky tbl-rank">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
-          <tr><td>1. 电竞网游（LOL / 王者 / CS）</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>虎牙核心主场，公会与赛事生态最成熟</td></tr>
-          <tr><td>2. 主机 / 单机游戏</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>虎牙单机区成熟，观众纯度高</td></tr>
-          <tr><td>3. 手游 / 休闲游戏</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>低龄向、泛用户手游，抖音流量优势明显</td></tr>
-          <tr><td>4. 棋牌麻将（强监管）</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>强监管类目，无资质三家均不可碰</td></tr>
-          <tr><td>5. 电竞赛事解说 / 二创</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>解说看虎牙垂直观众；短视频二创引流选抖音</td></tr>
+          <tr><td>1. 电竞网游（LOL / 王者 / CS）</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>虎牙核心主场，公会与赛事生态最成熟</td></tr>
+          <tr><td>2. 主机 / 单机游戏</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>虎牙单机区成熟，观众纯度高</td></tr>
+          <tr><td>3. 手游 / 休闲游戏</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>低龄向、泛用户手游，抖音流量优势明显</td></tr>
+          <tr><td>4. 棋牌麻将（强监管）</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span></td><td>强监管类目，四家均不可碰；小红书涉赌导流直接封号</td></tr>
+          <tr><td>5. 电竞赛事解说 / 二创</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>解说看虎牙垂直观众；短视频二创引流选抖音</td></tr>
         </tbody>
       </table>
     </div>
@@ -1009,14 +1089,14 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <div class="cat-header reveal"><h3>B · 泛娱乐 / 秀场直播</h3><span class="cat-badge">5 类</span></div>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
+      <table class="tbl-sticky tbl-rank">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
-          <tr><td>6. 歌舞才艺</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>抖音大盘最大；传统曲艺向可看视频号</td></tr>
-          <tr><td>7. 颜值 / 聊天陪伴</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>颜值向选抖音，语音陪聊向虎牙更强</td></tr>
-          <tr><td>8. 户外（街头 / 赶海 / 探险）</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>虎牙户外是传统强区</td></tr>
-          <tr><td>9. 语音电台 / 情感夜话</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-dy">抖音</span></td><td>虎牙语音区生态最成熟</td></tr>
-          <tr><td>10. 虚拟主播 / AI 数字人</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>抖音仅限真人驱动+实名认证；视频号全面禁止</td></tr>
+          <tr><td>6. 歌舞才艺</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>抖音大盘最大；传统曲艺向可看视频号</td></tr>
+          <tr><td>7. 颜值 / 聊天陪伴</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>颜值向选抖音，语音陪聊向虎牙更强</td></tr>
+          <tr><td>8. 户外（街头 / 赶海 / 探险）</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>虎牙户外是传统强区</td></tr>
+          <tr><td>9. 语音电台 / 情感夜话</td><td class="rank-cell"><b class="c-hy">虎牙</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-dy">抖音</span></td><td>虎牙语音区生态最成熟；小红书语音厅已进礼物榜前 14</td></tr>
+          <tr><td>10. 虚拟主播 / AI 数字人</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>抖音仅限真人驱动+实名认证；视频号全面禁止</td></tr>
         </tbody>
       </table>
     </div>
@@ -1025,16 +1105,16 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <div class="cat-header reveal"><h3>C · 电商带货</h3><span class="cat-badge">7 类</span></div>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
+      <table class="tbl-sticky tbl-rank">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
-          <tr><td>11. 达人综合带货</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音规模大（GMV 约 6800 亿元），视频号以高客单补位</td></tr>
-          <tr><td>12. 品牌 / 店铺自播</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音店播占大盘约 70%</td></tr>
-          <tr><td>13. 产业带 / 白牌 / 源头工厂</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>视频号下沉市场白牌消费突出</td></tr>
-          <tr><td>14. 珠宝玉石文玩</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音盘子大但需定向准入；视频号客单更高</td></tr>
-          <tr><td>15. 服饰档口走播</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>服饰为视频号第一大类目（订单占 38%），复购强</td></tr>
-          <tr><td>16. 二手 / 二手车</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音二手交易生态更完善</td></tr>
-          <tr><td>17. 助农 / 农产品</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>两家均有扶持政策；视频号食品家庭消费强</td></tr>
+          <tr><td>11. 达人综合带货</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音规模大（GMV 约 6800 亿元），视频号以高客单补位</td></tr>
+          <tr><td>12. 品牌 / 店铺自播</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音店播占大盘约 70%；小红书店播开播频次 +487%（2025 双11）</td></tr>
+          <tr><td>13. 产业带 / 白牌 / 源头工厂</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span></td><td>视频号下沉市场白牌消费突出</td></tr>
+          <tr><td>14. 珠宝玉石文玩</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音盘子大但需定向准入；小红书饰品与设计师珠宝客单更高</td></tr>
+          <tr><td>15. 服饰档口走播</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>服饰为视频号第一大类目（订单占 38%），复购强；小红书强在设计款与主理人</td></tr>
+          <tr><td>16. 二手 / 二手车</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>二手车仍以抖音为主；中古二奢是小红书的心智主场（需报白）</td></tr>
+          <tr><td>17. 助农 / 农产品</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音助农 135 亿单体量领先；小红书小红村 2025 年才起步</td></tr>
         </tbody>
       </table>
     </div>
@@ -1043,13 +1123,13 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <div class="cat-header reveal"><h3>D · 知识 / 专业直播</h3><span class="cat-badge">4 类</span></div>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
+      <table class="tbl-sticky tbl-rank">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
-          <tr><td>18. 教育培训 / 兴趣课程</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音规模大；已有私域则视频号转化率更高</td></tr>
-          <tr><td>19. 财经投资（需资质）</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>视频号用户资产属性最强、中年高净值集中</td></tr>
-          <tr><td>20. 法律 / 职场 / 泛科普</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音涨粉快；视频号接单/卖课转化更高</td></tr>
-          <tr><td>21. 医疗健康科普（需资质）</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>大健康为视频号重点扶持类目</td></tr>
+          <tr><td>18. 教育培训 / 兴趣课程</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span></td><td>抖音规模大；已有私域则视频号转化率更高；小红书明令禁止直播推广培训课程</td></tr>
+          <tr><td>19. 财经投资（需资质）</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span></td><td>视频号用户资产属性最强；小红书 2026-09 社区金融公约划出八类禁区</td></tr>
+          <tr><td>20. 法律 / 职场 / 泛科普</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音涨粉快；小红书利于立专业形象，视频号接单/卖课转化更高</td></tr>
+          <tr><td>21. 医疗健康科普（需资质）</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span></td><td>大健康为视频号重点扶持类目；小红书 2026-02 起禁三品一械与医美合作</td></tr>
         </tbody>
       </table>
     </div>
@@ -1058,14 +1138,14 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <div class="cat-header reveal"><h3>E · 本地生活 / 服务直播</h3><span class="cat-badge">5 类</span></div>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
+      <table class="tbl-sticky tbl-rank">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
-          <tr><td>22. 探店 / 团购核销</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音本地生活主场，商家扶持政策多</td></tr>
-          <tr><td>23. 酒旅民宿</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音旅行内容生态完善</td></tr>
-          <tr><td>24. 房产</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>高客单+私域长期跟进天然匹配</td></tr>
-          <tr><td>25. 汽车</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音汽车内容流量大</td></tr>
-          <tr><td>26. 直播带岗 / 招聘</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音招聘业务布局最重</td></tr>
+          <tr><td>22. 探店 / 团购核销</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音本地生活主场；小红卡 2026-01-01 已暂停，核销链路弱</td></tr>
+          <tr><td>23. 酒旅民宿</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音旅行内容生态完善；小红书民宿与县域目的地搜索增速为大盘 2.8 倍</td></tr>
+          <tr><td>24. 房产</td><td class="rank-cell"><b class="c-xhs">小红书</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>小红书房产线索直播场次激增 800%（2026 官方口径）；视频号靠私域长期跟进</td></tr>
+          <tr><td>25. 汽车</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音汽车内容流量大</td></tr>
+          <tr><td>26. 直播带岗 / 招聘</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span></td><td>抖音招聘业务布局最重；小红书尚无招聘生态</td></tr>
         </tbody>
       </table>
     </div>
@@ -1074,11 +1154,11 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <div class="cat-header reveal"><h3>F · 情感 / 交友直播</h3><span class="cat-badge">2 类</span></div>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
+      <table class="tbl-sticky tbl-rank">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
-          <tr><td>27. 相亲交友</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>中老年相亲在视频号爆火；抖音严打剧本炒作</td></tr>
-          <tr><td>28. 情感咨询 / 疗愈</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>信任型内容，私域沉淀决定收入</td></tr>
+          <tr><td>27. 相亲交友</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>视频号中老年相亲爆火；小红书九宫格相亲通宵场 50 万人观看</td></tr>
+          <tr><td>28. 情感咨询 / 疗愈</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>信任型内容，私域沉淀决定收入</td></tr>
         </tbody>
       </table>
     </div>
@@ -1087,13 +1167,13 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <div class="cat-header reveal"><h3>G · 活动 / 事件直播</h3><span class="cat-badge">4 类</span></div>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
+      <table class="tbl-sticky tbl-rank">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
-          <tr><td>29. 体育 / 电竞赛事转播</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>泛体育版权抖音强；电竞赛事则虎牙优先</td></tr>
-          <tr><td>30. 演唱会 / 晚会</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>视频号社交裂变多次刷屏</td></tr>
-          <tr><td>31. 政务 / 媒体 / 发布会</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>公众号+视频号+朋友圈传播链独特</td></tr>
-          <tr><td>32. B2B 企业直播 / 峰会</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>企业微信+腾讯会议栈打通</td></tr>
+          <tr><td>29. 体育 / 电竞赛事转播</td><td class="rank-cell"><b class="c-xhs">小红书</b><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-sph">视频号</span></td><td>小红书持 2026 世界杯 104 场免费转播权（与央视、咪咕并列）；电竞赛事仍看虎牙</td></tr>
+          <tr><td>30. 演唱会 / 晚会</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span></td><td>视频号社交裂变多次刷屏；小红书暂无大型演唱会官方直播案例</td></tr>
+          <tr><td>31. 政务 / 媒体 / 发布会</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>视频号公众号+朋友圈传播链独特；小红书的品牌大事件与时尚大秀是官方招商类目</td></tr>
+          <tr><td>32. B2B 企业直播 / 峰会</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span></td><td>企业微信+腾讯会议栈打通</td></tr>
         </tbody>
       </table>
     </div>
@@ -1102,12 +1182,12 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <div class="cat-header reveal"><h3>H · 特殊形态直播</h3><span class="cat-badge">3 类</span></div>
     <p class="swipe-hint" aria-hidden="true">左右滑动查看完整表格 ›</p>
     <div class="table-scroll reveal">
-      <table class="tbl-sticky">
+      <table class="tbl-sticky tbl-rank">
         <thead><tr><th>直播类型</th><th>适合度排序</th><th>关键理由</th></tr></thead>
         <tbody>
-          <tr><td>33. 慢直播（风景 / 24h 场景）</td><td class="rank-cell"><b class="c-sph">视频号</b><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>中老年"云陪伴"场景表现突出</td></tr>
-          <tr><td>34. 宠物</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音宠物内容流量大</td></tr>
-          <tr><td>35. 健身操课</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音有刘畊宏样本；中老年向选视频号</td></tr>
+          <tr><td>33. 慢直播（风景 / 24h 场景）</td><td class="rank-cell"><b class="c-xhs">小红书</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-dy">抖音</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>小红书 Citywalk 笔记半年 140 万篇、Colorwalk 浏览破 10 亿；视频号云陪伴次之</td></tr>
+          <tr><td>34. 宠物</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音宠物内容流量大；小红书萌宠为官方年度六大行业之一</td></tr>
+          <tr><td>35. 健身操课</td><td class="rank-cell"><b class="c-dy">抖音</b><span class="sep">&gt;</span><span class="c-sph">视频号</span><span class="sep">&gt;</span><span class="c-xhs">小红书</span><span class="sep">&gt;</span><span class="c-hy">虎牙</span></td><td>抖音有刘畊宏样本；中老年向选视频号，小红书跟练与户外健身心智强</td></tr>
         </tbody>
       </table>
     </div>
@@ -1119,26 +1199,32 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
   <div class="wrap">
     <p class="kicker reveal">08 · 总结论</p>
     <h2 class="reveal">答案，其实很简单。</h2>
-    <p class="lede reveal">三个平台不是"谁更好"，而是"谁更适合你"。看准自己播什么、卖给谁、能投入什么，答案自然浮现。</p>
+    <p class="lede reveal">四个平台不是"谁更好"，而是"谁更适合你"。看准自己播什么、卖给谁、能投入什么，答案自然浮现。</p>
 
     <div class="persona-grid">
       <div class="glass-card persona-card dy reveal">
         <div class="who"><i class="platform-dot dy"></i> 抖音</div>
         <div class="role">全能选手</div>
-        <div class="big-num">19<small>类第一</small></div>
+        <div class="big-num">18<small>类第一</small></div>
         <p>覆盖泛娱乐、大多数电商、知识、本地生活与生活形态类。代价是必须持续产出内容换流量，竞争最卷、投流成本最高、粉丝沉淀最弱。</p>
       </div>
       <div class="glass-card persona-card sph reveal d1">
         <div class="who"><i class="platform-dot sph"></i> 微信视频号</div>
         <div class="role">价值选手</div>
-        <div class="big-num">10<small>类第一</small></div>
-        <p>赢得的都是高客单、高信任、高复购类目——服饰、珠宝、财经、医疗、房产、情感、政务/企业、演唱会、慢直播。起步慢，但私域资产归自己。</p>
+        <div class="big-num">8<small>类第一</small></div>
+        <p>赢得的都是高客单、高信任、高复购类目——服饰、珠宝、财经、医疗、情感、政务/企业、演唱会。起步慢，但私域资产归自己。</p>
       </div>
       <div class="glass-card persona-card hy reveal d2">
         <div class="who"><i class="platform-dot hy"></i> 虎牙</div>
         <div class="role">专科选手</div>
         <div class="big-num">6<small>类第一</small></div>
         <p>游戏全品类、户外、语音陪伴是无可争议的主场；垂类之外（带货、知识、生活服务）基本没有生态，选型时可直接排除。</p>
+      </div>
+      <div class="glass-card persona-card xhs reveal d3">
+        <div class="who"><i class="platform-dot xhs"></i> 小红书</div>
+        <div class="role">审美选手</div>
+        <div class="big-num">3<small>类第一</small></div>
+        <p>房产线索直播、体育赛事、citywalk 慢直播三个第一名，加上整张表里最高的客单价。它不给你规模最大的观众，但给你最容易接受高价的那一批。</p>
       </div>
     </div>
 
@@ -1161,22 +1247,22 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
       <div class="decision-item reveal d2">
         <span class="decision-num">03</span>
         <div>
-          <div class="decision-text">其他一切，且能持续做内容 → <em>抖音</em></div>
-          <div class="decision-desc">用内容换流量，规模天花板最高</div>
+          <div class="decision-text">卖好看的 lifestyle 与高客单女性消费 → <em>小红书</em></div>
+          <div class="decision-desc">买手直播、主理人品牌、家居与中古，客单价全网最高</div>
         </div>
       </div>
       <div class="decision-item reveal d3">
         <span class="decision-num">04</span>
         <div>
-          <div class="decision-text">拿不准 / 想稳健 → <em>双平台联动</em></div>
-          <div class="decision-desc">抖音主号获客 + 视频号私域沉淀</div>
+          <div class="decision-text">其他一切，且能持续做内容 → <em>抖音</em></div>
+          <div class="decision-desc">用内容换流量，规模天花板最高</div>
         </div>
       </div>
     </div>
 
     <div class="duo-card reveal">
-      <h3>双平台组合策略</h3>
-      <p>对大多数带货与知识类主播，业内成熟打法是"公域获客 + 私域沉淀"双开：抖音负责涨粉、成交与爆款打造；视频号 + 企业微信负责复购、高客单转化与长期客户经营。两个平台流量逻辑互补，而非互相替代。</p>
+      <h3>多平台组合策略</h3>
+      <p>对大多数带货与知识类主播，业内成熟打法是"公域获客 + 人设背书 + 私域沉淀"：抖音负责涨粉、成交与爆款打造；小红书负责立审美人设、拿高客单与搜索心智；视频号 + 企业微信负责复购、长期客户经营。三者流量逻辑互补，而非互相替代；资源有限时优先做深一个，再双开。</p>
     </div>
   </div>
 </section>
@@ -1191,6 +1277,10 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
       <div class="note-card reveal">抖音直播场景的专属年龄分布无公开细分，本报告以平台整体用户画像近似。</div>
       <div class="note-card reveal">各平台分成政策、保证金规则动态调整频繁，签约公会或缴纳保证金前，请以平台官方后台最新规则为准。</div>
       <div class="note-card reveal">2025–2026 年行业数据综合自各平台财报、QuestMobile、艾瑞咨询等公开来源，部分数据为行业估算值。</div>
+      <div class="note-card reveal">小红书月活口径分化明显：官方 3.5–4 亿（含海外）与 QuestMobile 国内 2.42 亿相差近一倍，图表与表格取国内可比口径。</div>
+      <div class="note-card reveal">小红书电商 GMV 无官方披露：8000–8500 亿元为含种草外跳的广义第三方测算，站内直播口径约 600–2000 亿元，份额饼图按后者估算。</div>
+      <div class="note-card reveal">小红书直播打赏分成从未官方公布，表中 50% 与 81%–90% 均为第三方转述口径；其笔记礼物功能 2026-05 才内测。</div>
+      <div class="note-card reveal">小红书 2025–2026 规则变动频繁：百万免佣 2026-05-15 终止、小红卡 2026-01-01 暂停试运营、娱播公会 2025-09-01 才开放，签约前以官方后台为准。</div>
     </div>
   </div>
 </section>
@@ -1217,6 +1307,17 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
       <a href="https://tidenews.com.cn/news.html?id=3098481" target="_blank" rel="noopener">抖音严禁无人直播（潮新闻）</a>
       <a href="https://pdf.dfcfw.com/pdf/H3_AP202511251788213698_1.pdf" target="_blank" rel="noopener">中国直播产业行业市场研究报告 2025</a>
       <a href="https://m.renrendoc.com/paper/539317836.html" target="_blank" rel="noopener">2026 中国直播电商行业竞争格局分析</a>
+      <a href="https://www.vicsdf.com/doc/0632e80732fd46d3" target="_blank" rel="noopener">千瓜数据：2026 小红书活跃用户研究报告</a>
+      <a href="https://m.jiemian.com/article/11481574.html" target="_blank" rel="noopener">直播客单价超 500 元，小红书电商能否突围（界面新闻）</a>
+      <a href="https://new.qq.com/rain/a/20240725A033SX00" target="_blank" rel="noopener">小红书 link 电商伙伴大会：生活方式电商（官方口径）</a>
+      <a href="https://agree.xiaohongshu.com/h5/terms/ZXXY20220401002/-1" target="_blank" rel="noopener">小红书直播服务协议（官方）</a>
+      <a href="https://baike.baidu.com/item/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E7%99%BE%E5%8D%87%E4%BD%A3%E8%AE%A1%E5%88%92/66391834" target="_blank" rel="noopener">小红书百万免佣计划（官方公告转述）</a>
+      <a href="https://new.qq.com/rain/a/20260204A0723300" target="_blank" rel="noopener">小红书叫停医疗医美达人合作，新规 2 月 10 日落地（九派财经）</a>
+      <a href="https://finance.sina.cn/2025-09-25/detail-infrsnhs7403583.d.html" target="_blank" rel="noopener">小红书全面开放娱播公会入驻（定焦One）</a>
+      <a href="https://new.qq.com/rain/a/20260528A02NCE00" target="_blank" rel="noopener">小红书官宣成为 2026 美加墨世界杯持权转播商（IT之家）</a>
+      <a href="https://finance.sina.com.cn/wm/2026-04-01/doc-inhsywsz4947030.shtml" target="_blank" rel="noopener">小红书房产线索直播：地产直播间激增 800%（2026 地产峰会）</a>
+      <a href="https://xueqiu.com/4114761902/379735905" target="_blank" rel="noopener">小红书 2025 双 11 收官数据（千万买手客单价 7700 元）</a>
+      <a href="https://theinitium.com/20250316-love-and-desire-love-matching-on-xiaohongshu-zh-hans/" target="_blank" rel="noopener">端传媒：小红书上被围观的云相亲</a>
     </div>
   </div>
 </section>
@@ -1228,8 +1329,8 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
     <h2 class="reveal">下一步。</h2>
     <div class="next-grid">
       <div class="next-card reveal"><div class="next-num">STEP 1</div><p>明确直播内容方向与变现方式后，按第七章排序锁定 1–2 个目标平台。</p></div>
-      <div class="next-card reveal d1"><div class="next-num">STEP 2</div><p>在目标平台完成实名认证并开播试水（视频号/抖音可个人直接开播，虎牙建议先了解公会条款）。</p></div>
-      <div class="next-card reveal d2"><div class="next-num">STEP 3</div><p>如涉及带货，完成开店与类目资质准备（抖音小店或微信小店，注意保证金与定向准入要求）。</p></div>
+      <div class="next-card reveal d1"><div class="next-num">STEP 2</div><p>在目标平台完成实名认证并开播试水（抖音/视频号实名即可开播，虎牙建议先了解公会条款，小红书带货需专业号+创作者认证）。</p></div>
+      <div class="next-card reveal d2"><div class="next-num">STEP 3</div><p>如涉及带货，完成开店与类目资质准备（抖音小店、微信小店或小红书店铺，注意保证金、定向准入与二奢等特殊类目报白要求）。</p></div>
       <div class="next-card reveal d3"><div class="next-num">STEP 4</div><p>后续可进一步输出：账号定位与人设方案、设备与场地清单、开播时间表、30 天冷启动计划。</p></div>
     </div>
   </div>
@@ -1238,7 +1339,7 @@ html.reduced-motion .hero-inner{ transform: none !important; opacity: 1 !importa
 <!-- Footer -->
 <footer>
   <div class="wrap">
-    <p>今晚去哪播？ · 抖音 / 虎牙 / 微信视频号</p>
+    <p>今晚去哪播？ · 抖音 / 虎牙 / 微信视频号 / 小红书</p>
     <p>本报告基于 2025–2026 年初公开数据整理，仅供选型决策参考；平台政策以官方最新规则为准。</p>
   </div>
 </footer>
@@ -1256,7 +1357,9 @@ function getChartColors() {
     dy: dark ? '#64d2ff' : '#0ea5e9', hy: dark ? '#ff9f0a' : '#f97316', sph: dark ? '#30d158' : '#16a34a',
     dyBg: dark ? 'rgba(100,210,255,0.18)' : 'rgba(14,165,233,0.14)',
     hyBg: dark ? 'rgba(255,159,10,0.18)' : 'rgba(249,115,22,0.14)',
-    sphBg: dark ? 'rgba(48,209,88,0.18)' : 'rgba(22,163,74,0.14)'
+    sphBg: dark ? 'rgba(48,209,88,0.18)' : 'rgba(22,163,74,0.14)',
+    xhs: dark ? '#ff6b81' : '#ff2442',
+    xhsBg: dark ? 'rgba(255,107,129,0.18)' : 'rgba(255,36,66,0.14)'
   };
 }
 function updateSeg() {
@@ -1433,35 +1536,36 @@ if (isMobile()) { document.documentElement.classList.add('is-mobile'); Chart.def
 var chartMAU, chartGMV, chartRank, chartPrice, chartAge, chartShare;
 var ctxMAU = document.getElementById('chartMAU');
 if (ctxMAU) {
-  chartMAU = new Chart(ctxMAU, { type: 'bar', data: { labels: ['抖音', '微信视频号', '虎牙'], datasets: [{ label: '月活用户 (亿)', data: [10, 12, 1.62], backgroundColor: [c0.dyBg, c0.sphBg, c0.hyBg], borderColor: [c0.dy, c0.sph, c0.hy], borderWidth: 2, borderRadius: 8, barPercentage: 0.6, _themeColors: [c0.dy, c0.sph, c0.hy], _themeBg: [c0.dyBg, c0.sphBg, c0.hyBg] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.y + ' 亿'; } } } }, scales: { y: { beginAtZero: true, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return v + '亿'; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
+  chartMAU = new Chart(ctxMAU, { type: 'bar', data: { labels: ['抖音', '微信视频号', '虎牙', '小红书'], datasets: [{ label: '月活用户 (亿)', data: [10, 12, 1.62, 2.4], backgroundColor: [c0.dyBg, c0.sphBg, c0.hyBg, c0.xhsBg], borderColor: [c0.dy, c0.sph, c0.hy, c0.xhs], borderWidth: 2, borderRadius: 8, barPercentage: 0.6, _themeColors: [c0.dy, c0.sph, c0.hy, c0.xhs], _themeBg: [c0.dyBg, c0.sphBg, c0.hyBg, c0.xhsBg] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return I18N.num.yi(ctx.parsed.y); } } } }, scales: { y: { beginAtZero: true, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return I18N.num.yi(v); } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
 }
 var ctxGMV = document.getElementById('chartGMV');
 if (ctxGMV) {
-  chartGMV = new Chart(ctxGMV, { type: 'doughnut', data: { labels: ['抖音电商', '快手电商', '淘宝直播', '视频号', '其他'], datasets: [{ data: [45, 27, 16, 10, 2], backgroundColor: ['rgba(37,244,238,0.7)', 'rgba(255,138,0,0.7)', 'rgba(239,68,68,0.7)', 'rgba(7,193,96,0.7)', 'rgba(148,163,184,0.3)'], borderColor: 'transparent', borderWidth: 0, hoverOffset: 8 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '55%', plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.label + ': ' + ctx.parsed + '%'; } } } } } });
+  chartGMV = new Chart(ctxGMV, { type: 'doughnut', data: { labels: ['抖音电商', '快手电商', '淘宝直播', '视频号', '小红书', '其他'], datasets: [{ data: [44, 26, 15, 10, 2, 3], backgroundColor: ['rgba(37,244,238,0.7)', 'rgba(255,138,0,0.7)', 'rgba(239,68,68,0.7)', 'rgba(7,193,96,0.7)', 'rgba(255,36,66,0.75)', 'rgba(148,163,184,0.3)'], borderColor: 'transparent', borderWidth: 0, hoverOffset: 8 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '55%', plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.label + ': ' + ctx.parsed + '%'; } } } } } });
 }
 var ctxRank = document.getElementById('chartRank');
 if (ctxRank) {
-  chartRank = new Chart(ctxRank, { type: 'bar', data: { labels: ['抖音', '微信视频号', '虎牙'], datasets: [{ label: '第一名次数', data: [19, 10, 6], backgroundColor: ['rgba(37,244,238,0.6)', 'rgba(7,193,96,0.6)', 'rgba(255,138,0,0.6)'], borderColor: [c0.dy, c0.sph, c0.hy], borderWidth: 2, borderRadius: 8, barPercentage: 0.5, _themeColors: [c0.dy, c0.sph, c0.hy] }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.x + ' 类第一'; } } } }, scales: { x: { beginAtZero: true, max: 25, grid: { color: c0.grid }, ticks: { color: c0.text, stepSize: 5 } }, y: { grid: { display: false }, ticks: { color: c0.text } } } } });
+  chartRank = new Chart(ctxRank, { type: 'bar', data: { labels: ['抖音', '微信视频号', '虎牙', '小红书'], datasets: [{ label: '第一名次数', data: [18, 8, 6, 3], backgroundColor: ['rgba(37,244,238,0.6)', 'rgba(7,193,96,0.6)', 'rgba(255,138,0,0.6)', 'rgba(255,36,66,0.6)'], borderColor: [c0.dy, c0.sph, c0.hy, c0.xhs], borderWidth: 2, borderRadius: 8, barPercentage: 0.5, _themeColors: [c0.dy, c0.sph, c0.hy, c0.xhs] }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.x + I18N.T(' 类第一'); } } } }, scales: { x: { beginAtZero: true, max: 25, grid: { color: c0.grid }, ticks: { color: c0.text, stepSize: 5 } }, y: { grid: { display: false }, ticks: { color: c0.text } } } } });
 }
 var ctxPrice = document.getElementById('chartPrice');
 if (ctxPrice) {
-  chartPrice = new Chart(ctxPrice, { type: 'bar', data: { labels: ['抖音', '微信视频号'], datasets: [{ label: '客单价 (元)', data: [130, 205], backgroundColor: ['rgba(37,244,238,0.5)', 'rgba(7,193,96,0.5)'], borderColor: [c0.dy, c0.sph], borderWidth: 2, borderRadius: 8, barPercentage: 0.5, _themeColors: [c0.dy, c0.sph] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return '\u00a5' + ctx.parsed.y + '/笔'; } } } }, scales: { y: { beginAtZero: true, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return '\u00a5' + v; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
+  chartPrice = new Chart(ctxPrice, { type: 'bar', data: { labels: ['抖音', '微信视频号', '小红书'], datasets: [{ label: '客单价 (元)', data: [130, 205, 500], backgroundColor: ['rgba(37,244,238,0.5)', 'rgba(7,193,96,0.5)', 'rgba(255,36,66,0.5)'], borderColor: [c0.dy, c0.sph, c0.xhs], borderWidth: 2, borderRadius: 8, barPercentage: 0.5, _themeColors: [c0.dy, c0.sph, c0.xhs] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return '\u00a5' + ctx.parsed.y + I18N.T('/笔'); } } } }, scales: { y: { beginAtZero: true, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return '\u00a5' + v; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
 }
 var ctxAge = document.getElementById('chartAge');
 if (ctxAge) {
   chartAge = new Chart(ctxAge, { type: 'radar', data: { labels: ['18岁以下', '18-25岁', '25-35岁', '35-50岁', '50岁以上'], datasets: [
     { label: '抖音', data: [15, 35, 30, 15, 5], borderColor: c0.dy, backgroundColor: 'rgba(37,244,238,0.1)', borderWidth: 2, pointBackgroundColor: c0.dy, pointRadius: 4, _themeColors: [c0.dy] },
     { label: '虎牙', data: [25, 44, 20, 8, 3], borderColor: c0.hy, backgroundColor: 'rgba(255,138,0,0.1)', borderWidth: 2, pointBackgroundColor: c0.hy, pointRadius: 4, _themeColors: [c0.hy] },
-    { label: '视频号', data: [5, 10, 25, 39, 21], borderColor: c0.sph, backgroundColor: 'rgba(7,193,96,0.1)', borderWidth: 2, pointBackgroundColor: c0.sph, pointRadius: 4, _themeColors: [c0.sph] }
-  ] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.r + '%'; } } } }, scales: { r: { beginAtZero: true, max: 50, grid: { color: c0.grid }, angleLines: { color: c0.grid }, pointLabels: { font: { size: 11 }, color: c0.text }, ticks: { display: false, stepSize: 10 } } } } });
+    { label: '视频号', data: [5, 10, 25, 39, 21], borderColor: c0.sph, backgroundColor: 'rgba(7,193,96,0.1)', borderWidth: 2, pointBackgroundColor: c0.sph, pointRadius: 4, _themeColors: [c0.sph] },
+    { label: '小红书', data: [3, 43, 38, 12, 4], borderColor: c0.xhs, backgroundColor: 'rgba(255,36,66,0.1)', borderWidth: 2, pointBackgroundColor: c0.xhs, pointRadius: 4, _themeColors: [c0.xhs] }
+  ] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 14, usePointStyle: true, pointStyleWidth: 10, font: { size: 12 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.r + '%'; } } } }, scales: { r: { beginAtZero: true, max: 50, grid: { color: c0.grid }, angleLines: { color: c0.grid }, pointLabels: { font: { size: 11 }, color: c0.text }, ticks: { display: false, stepSize: 10 } } } } });
 }
 var ctxShare = document.getElementById('chartShare');
 if (ctxShare) {
-  chartShare = new Chart(ctxShare, { type: 'bar', data: { labels: ['抖音', '虎牙', '视频号'], datasets: [
-    { label: '个人主播最低', data: [30, 50, 50], backgroundColor: 'rgba(124,58,237,0.5)', borderColor: '#7c3aed', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 },
-    { label: '个人主播最高', data: [50, 50, 50], backgroundColor: 'rgba(167,139,250,0.5)', borderColor: '#a78bfa', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 },
-    { label: '公会主播最高', data: [55, 70, 50], backgroundColor: 'rgba(244,114,182,0.5)', borderColor: '#f472b6', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 }
-  ] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 10, font: { size: 11 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; } } } }, scales: { y: { beginAtZero: true, max: 80, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return v + '%'; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
+  chartShare = new Chart(ctxShare, { type: 'bar', data: { labels: ['抖音', '虎牙', '视频号', '小红书'], datasets: [
+    { label: '个人主播最低', data: [30, 50, 50, 50], backgroundColor: 'rgba(124,58,237,0.5)', borderColor: '#7c3aed', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 },
+    { label: '个人主播最高', data: [50, 50, 50, 50], backgroundColor: 'rgba(167,139,250,0.5)', borderColor: '#a78bfa', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 },
+    { label: '公会主播最高', data: [55, 70, 50, 90], backgroundColor: 'rgba(244,114,182,0.5)', borderColor: '#f472b6', borderWidth: 1, borderRadius: 4, barPercentage: 0.7 }
+  ] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 14, usePointStyle: true, pointStyleWidth: 10, font: { size: 11 }, color: c0.text } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; } } } }, scales: { y: { beginAtZero: true, max: 95, grid: { color: c0.grid }, ticks: { color: c0.text, callback: function(v) { return v + '%'; } } }, x: { grid: { display: false }, ticks: { color: c0.text } } } } });
 }
 function tuneForDevice() {
   var m = isMobile();

@@ -1,0 +1,1510 @@
+{
+ "total": 376,
+ "chars": 7388,
+ "strings": [
+  {
+   "zh": "财经、医疗、法律类直播各平台均要求执业/行业资质认证；珠宝文玩在抖音属定向准入类目；棋牌类目受强监管；小红书自 2026-02-10 起禁止买手在直播间分享 OTC 药品、保健食品、特医食品与医疗器械，学科类培训也不得以直播推广。无资质情况下，以上方向应一票否决。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "对大多数带货与知识类主播，业内成熟打法是\"公域获客 + 人设背书 + 私域沉淀\"：抖音负责涨粉、成交与爆款打造；小红书负责立审美人设、拿高客单与搜索心智；视频号 + 企业微信负责复购、长期客户经营。三者流量逻辑互补，而非互相替代；资源有限时优先做深一个，再双开。",
+   "where": "section > div > div > p"
+  },
+  {
+   "zh": "本报告面向\"在抖音、虎牙、微信视频号、小红书四个备选平台中做出直播选型\"这一决策需求，基于 2025–2026 年初公开数据，从平台基本面、观众画像、用户消费能力、平台政策四个维度进行对比，并对 8 大类 35 个细分直播类型逐一给出四平台适合度排序。",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "抖音严禁无人直播，虚拟人直播必须真人驱动 + 实名认证 + 标明 AI 生成；视频号全面禁止数字人直播，使用虚拟形象直接封号；小红书 2026-08 起强制 AI 声明，未标注即限流，已处置 AI 托管账号 42 万。录播挂机在所有平台均属封号红线。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "抖音审核最严、规则最细，违规轻则限流重则封禁；虎牙对涉赌、低俗内容打击严格；视频号依托微信实名体系，违规会连带影响微信号本身，封号代价最高；小红书对站外导流最严，《交易导流违规管理细则》下三次违规即永久关闭买手权限。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "目标受众是年轻男性玩家，选虎牙；是 30 岁以上女性、家庭消费人群或中老年，视频号几乎没有对手；是一二线 18–34 岁女性、卖高客单的好设计，小红书几乎没有对手；需要泛流量、全年龄段覆盖，选抖音。",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "小红书 2025–2026 规则变动频繁：百万免佣 2026-05-15 终止、小红卡 2026-01-01 暂停试运营、娱播公会 2025-09-01 才开放，签约前以官方后台为准。",
+   "where": "section > div > div > div"
+  },
+  {
+   "zh": "抖音是\"流量海洋\"，虎牙是\"垂直鱼塘\"，视频号是\"熟人社会\"，小红书是\"审美买手店\"。四者的月活体量相差一个数量级，但视频号用户的单次停留质量和信任度更高，虎牙观众的付费目的性最强。",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "娱乐直播公会 2025-09-01 才全面开放入驻（保证金 2 万元，营业性演出许可证 6 个月内补齐）；带货侧走买手与蒲公英而非公会，多数头部公会尚未入驻。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "小红书的代价是规模：客单价最高，可盘子最小、下单转化率仅约 1%。需要注意：虎牙赖以生存的打赏大盘正处于行业性收缩周期（\"榜一大哥\"现象退潮），天花板可见。",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "小红书电商 GMV 无官方披露：8000–8500 亿元为含种草外跳的广义第三方测算，站内直播口径约 600–2000 亿元，份额饼图按后者估算。",
+   "where": "section > div > div > div"
+  },
+  {
+   "zh": "四家都是实名认证即可开播，差异在电商门槛、分成结构与公会约束；小红书的分成比例至今未官方公布。政策动态调整频繁，签约前请以官方后台最新规则为准。",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "\"A > B > C > D\" 表示 A 最适合、D 最不适合。排序综合目标观众与平台用户的重合度、平台生态成熟度、变现效率、政策门槛四个因素。",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "房产线索直播、体育赛事、citywalk 慢直播三个第一名，加上整张表里最高的客单价。它不给你规模最大的观众，但给你最容易接受高价的那一批。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "小红书月活口径分化明显：官方 3.5–4 亿（含海外）与 QuestMobile 国内 2.42 亿相差近一倍，图表与表格取国内可比口径。",
+   "where": "section > div > div > div"
+  },
+  {
+   "zh": "白金公会签约主播前 3 个月不能强制解约退出，未到期退出需协商或支付强解费；对应享有 3 个月新主播流量保护期。签约前务必逐条核对条款。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "高客单女性生活方式的主场：买手直播、主理人品牌、家居与中古。盘子小、转化链路长，靠审美与搜索心智取胜，投流与白牌性价比都不是它的路。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "小红书直播打赏分成从未官方公布，表中 50% 与 81%–90% 均为第三方转述口径；其笔记礼物功能 2026-05 才内测。",
+   "where": "section > div > div > div"
+  },
+  {
+   "zh": "覆盖泛娱乐、大多数电商、知识、本地生活与生活形态类。代价是必须持续产出内容换流量，竞争最卷、投流成本最高、粉丝沉淀最弱。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "在目标平台完成实名认证并开播试水（抖音/视频号实名即可开播，虎牙建议先了解公会条款，小红书带货需专业号+创作者认证）。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "MAU 2.42 亿（QuestMobile 2025）；官方口径 3.5–4 亿（含海外），DAU 约 1.2 亿",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "赢得的都是高客单、高信任、高复购类目——服饰、珠宝、财经、医疗、情感、政务/企业、演唱会。起步慢，但私域资产归自己。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "如涉及带货，完成开店与类目资质准备（抖音小店、微信小店或小红书店铺，注意保证金、定向准入与二奢等特殊类目报白要求）。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "2025–2026 年行业数据综合自各平台财报、QuestMobile、艾瑞咨询等公开来源，部分数据为行业估算值。",
+   "where": "section > div > div > div"
+  },
+  {
+   "zh": "官方已发布《直播机构与主播合作签约与履约规范》，禁止高额违约金、误导退会等行为，主播权益保障在三家中相对最好。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "游戏全品类、户外、语音陪伴是无可争议的主场；垂类之外（带货、知识、生活服务）基本没有生态，选型时可直接排除。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "虎牙观众年龄数据来源较早（极光大数据 2018 年），近两年结构略有上移，但\"年轻男性为主\"的整体格局未变。",
+   "where": "section > div > div > div"
+  },
+  {
+   "zh": "小红书 Citywalk 笔记半年 140 万篇、Colorwalk 浏览破 10 亿；视频号云陪伴次之",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "除游戏垂类和信任型高客单外，几乎全是主场；用持续的内容产出换平台流量，规模天花板最高，竞争也最激烈。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "本报告基于 2025–2026 年初公开数据整理，仅供选型决策参考；平台政策以官方最新规则为准。",
+   "where": "body > footer > div > p"
+  },
+  {
+   "zh": "四个平台不是\"谁更好\"，而是\"谁更适合你\"。看准自己播什么、卖给谁、能投入什么，答案自然浮现。",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "各平台分成政策、保证金规则动态调整频繁，签约公会或缴纳保证金前，请以平台官方后台最新规则为准。",
+   "where": "section > div > div > div"
+  },
+  {
+   "zh": "人均单日约 74–77 分钟（QuestMobile），日均打开 16 次（官方 2025）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "专业号+店铺，二奢/食品等特殊类目需报白；2025-09 起百万免佣仅留 0.6% 支付成本",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "游戏垂类（含户外、语音陪伴）无对手，垂类之外生态薄弱，选它前先确认\"播的是不是游戏\"。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "小红书持 2026 世界杯 104 场免费转播权（与央视、咪咕并列）；电竞赛事仍看虎牙",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "后续可进一步输出：账号定位与人设方案、设备与场地清单、开播时间表、30 天冷启动计划。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "赢得的都是高客单、高信任、高复购的类目；冷启动慢，但私域资产归自己，适合做长期生意。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "2025-09-01 起娱播公会全面开放，叠加任务最高约 81%–90%（第三方）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "类目保证金与店铺保证金取高者；娱播公会入驻保证金 2 万元（2025-09 起）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "小红书房产线索直播场次激增 800%（2026 官方口径）；视频号靠私域长期跟进",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音店播占大盘约 70%；小红书店播开播频次 +487%（2025 双11）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "18–34 岁占 83%+：18–24 约 43%、25–34 约 37%",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "女性约 70%（男女约 3:7），女性用户 TGI 162.5 为全网第一",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "打赏集中于娱播/团播，笔记礼物 2026-05 才内测；带货靠佣金而非打赏",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "0 元入驻/0 元试运营；个人身份证可开个人店（年成交上限约 10 万元）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "服饰为视频号第一大类目（订单占 38%），复购强；小红书强在设计款与主理人",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "大健康为视频号重点扶持类目；小红书 2026-02 起禁三品一械与医美合作",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "视频号公众号+朋友圈传播链独特；小红书的品牌大事件与时尚大秀是官方招商类目",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音 · 虎牙 · 微信视频号 · 小红书 —— 35 类直播到底哪家用",
+   "where": "body > header > div > p"
+  },
+  {
+   "zh": "日均 71–72 分钟；直播平均停留 15 分钟（为抖音的 1.8 倍）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "实名+满 18 岁可开内容直播；带货需专业号，创作者认证约 5000 粉",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "视频号用户资产属性最强；小红书 2026-09 社区金融公约划出八类禁区",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "用图表直观呈现四平台在用户规模、市场占有、变现效率等关键指标上的差异。",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "一二线占 50%+，一线+新一线 37.2%（QuestMobile）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "为审美与生活方式付费：高客单、低退货（第三方口径直播退货率约 12%）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "以商单/聚光为主；站内下单转化率约 0.7%–1.2%，种草强、闭环短",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音规模大；已有私域则视频号转化率更高；小红书明令禁止直播推广培训课程",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音旅行内容生态完善；小红书民宿与县域目的地搜索增速为大盘 2.8 倍",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "房产线索直播、体育赛事（2026 世界杯）、citywalk 慢直播",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "抖音直播场景的专属年龄分布无公开细分，本报告以平台整体用户画像近似。",
+   "where": "section > div > div > div"
+  },
+  {
+   "zh": "小红书 2025 双 11 收官数据（千万买手客单价 7700 元）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "明确直播内容方向与变现方式后，按第七章排序锁定 1–2 个目标平台。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "（第三方测算，含种草外跳）；站内直播口径约 600–2000 亿元",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "明显偏成熟：30–50 岁为消费主力；50 岁以上占比 20.9%",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音本地生活主场；小红卡 2026-01-01 已暂停，核销链路弱",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "小红书叫停医疗医美达人合作，新规 2 月 10 日落地（九派财经）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "小红书房产线索直播：地产直播间激增 800%（2026 地产峰会）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "抖音助农 135 亿单体量领先；小红书小红村 2025 年才起步",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音有刘畊宏样本；中老年向选视频号，小红书跟练与户外健身心智强",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "公会可选，个人开播完全跑得通，个人主播打赏分成固定 50%。",
+   "where": "div > div > div > p"
+  },
+  {
+   "zh": "抖音规模大（GMV 约 6800 亿元），视频号以高客单补位",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "视频号中老年相亲爆火；小红书九宫格相亲通宵场 50 万人观看",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "小红书官宣成为 2026 美加墨世界杯持权转播商（IT之家）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "今晚去哪播？ · 抖音 / 虎牙 / 微信视频号 / 小红书",
+   "where": "body > footer > div > p"
+  },
+  {
+   "zh": "决策驱动：70%+ 月活有搜索行为，先种草、再比价、后下单",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音涨粉快；小红书利于立专业形象，视频号接单/卖课转化更高",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "现在已是傍晚，深色背景在弱光环境里更护眼。要现在切换吗？",
+   "where": "body > div > div > p"
+  },
+  {
+   "zh": "二手车仍以抖音为主；中古二奢是小红书的心智主场（需报白）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "视频号社交裂变多次刷屏；小红书暂无大型演唱会官方直播案例",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "直播客单价超 500 元，小红书电商能否突围（界面新闻）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "小红书 link 电商伙伴大会：生活方式电商（官方口径）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "抖音盘子大但需定向准入；小红书饰品与设计师珠宝客单更高",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "高客单信任电商、专业资质类、情感、政务/企业、演唱会",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "生活方式社区 + 买手电商，种草—搜索—交易站内闭环",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "微信小店 0 保证金试运营（支持 3000+ 类目）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "礼物以薯币计价（1 元 = 7 薯币），收益按月结算",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "虎牙语音区生态最成熟；小红书语音厅已进礼物榜前 14",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音宠物内容流量大；小红书萌宠为官方年度六大行业之一",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "卖好看的 lifestyle 与高客单女性消费 →",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "主播打赏分成比例 (%) · 小红书为第三方口径",
+   "where": "div > div > div > h4"
+  },
+  {
+   "zh": "行吟信息科技（上海）有限公司／小红书科技有限公司",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "10 亿+（含极速版），覆盖约 71% 中国网民",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "约 3500 亿元（直播全年），同比增长 35%",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "用户男女约 53:47，购买用户 78% 为女性",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音赚量，视频号赚价，小红书赚审美，虎牙赚情感。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "（官方口径），买手直播常见 800–1500 元",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "强监管类目，四家均不可碰；小红书涉赌导流直接封号",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "买手直播、主理人品牌、家居与中古，客单价全网最高",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "泛娱乐、大多数电商、知识、本地生活、生活形态类",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "12 亿+（微信大盘），DAU 约 6.2 亿",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "月人均 46.5 小时（日均 1.5 小时+）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "信任消费：高客单、重复购，服饰类订单占 38%",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "浮动与类目保证金取高者（普通数千至 2 万元）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "平台与公会按 70%/50%/40% 三档结算",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "虎牙 2025 年 Q3 营收创新高（财联社）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "1. 电竞网游（LOL / 王者 / CS）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "AgeClub：2026 短视频银发用户报告",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "数据窗口：2025–2026 年初公开数据",
+   "where": "header > div > div > span"
+  },
+  {
+   "zh": "游戏全品类、户外、语音陪伴、棋牌（需资质）",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "游戏直播垂直平台，正转型\"游戏生态服务商\"",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "18–35 岁为主，24 岁以下是最大群体",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "年轻男性为主，约 69% 在 25 岁以内",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音仅限真人驱动+实名认证；视频号全面禁止",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "虎牙 2025 年第三季度财报（东方财富）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "千瓜数据：2026 小红书活跃用户研究报告",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "报告日期：2026 年 11 月 5 日",
+   "where": "header > div > div > span"
+  },
+  {
+   "zh": "直播电商 GMV 市场份额 (2025)",
+   "where": "div > div > div > h4"
+  },
+  {
+   "zh": "全内容生态：短视频+直播+电商+本地生活",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "县域用户占 39%，三四线及县域活跃度高",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "冲动消费、价格敏感，9.9 元引流款有效",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "解说看虎牙垂直观众；短视频二创引流选抖音",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音招聘业务布局最重；小红书尚无招聘生态",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "33. 慢直播（风景 / 24h 场景）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "小红书全面开放娱播公会入驻（定焦One）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "微信内的直播/短视频，长在社交关系链上",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "早期可达 1:100，稳定约 1:10",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "8. 户外（街头 / 赶海 / 探险）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "13. 产业带 / 白牌 / 源头工厂",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "中国直播产业行业市场研究报告 2025",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "2026 中国直播电商行业竞争格局分析",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "情感付费：为技术/陪伴/归属感刷礼物",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "30%–55%，S 级头部公会可更高",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "月佣金需超过 100 金元宝方可提现",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "未官方公布，第三方口径基础约 50%",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "低龄向、泛用户手游，抖音流量优势明显",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音月活用户破 10 亿（新浪财经）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "AgeClub：视频号白牌与下沉市场",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "1.62 亿（2025 年 Q3）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "无明显下沉特征，广东等游戏大省活跃",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "约 1:2（CPM 约 25 元）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "实名即可，获取流量基本必须挂靠公会",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "按类目 2000–2 万元（可退）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "虎牙核心主场，公会与赛事生态最成熟",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音大盘最大；传统曲艺向可看视频号",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "10. 虚拟主播 / AI 数字人",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "20. 法律 / 职场 / 泛科普",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "31. 政务 / 媒体 / 发布会",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "32. B2B 企业直播 / 峰会",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "播游戏 / 户外 / 语音陪聊 →",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "小红书百万免佣计划（官方公告转述）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "卖好看的生活方式、做女性向高客单",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "广义约 8000–8500 亿元",
+   "where": "tbody > tr > td > span"
+  },
+  {
+   "zh": "目的性强：看特定游戏/战队/主播",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "颜值向选抖音，语音陪聊向虎牙更强",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "播游戏 / 户外 / 语音陪聊",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "约 6800 亿元（电商全年）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "打赏弱于前两者，私域转化价值高",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "30%–70%，取决于协议档位",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "18. 教育培训 / 兴趣课程",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "21. 医疗健康科普（需资质）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "E · 本地生活 / 服务直播",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "29. 体育 / 电竞赛事转播",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "视频号直播打赏协议（微信官方）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "端传媒：小红书上被围观的云相亲",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "女性 52.8%，略多于男性",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "兴趣驱动，刷到即看，忠诚度低",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "信任驱动：朋友点赞/推荐进入",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "电商基础设施弱，非变现主路径",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "直播打赏分成（主播实际到手）",
+   "where": "body > section > div > h3"
+  },
+  {
+   "zh": "5. 电竞赛事解说 / 二创",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "B · 泛娱乐 / 秀场直播",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "9. 语音电台 / 情感夜话",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "信任型内容，私域沉淀决定收入",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "卖高客单、做信任、吃复购 →",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "其他一切，且能持续做内容 →",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "用内容换流量，规模天花板最高",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "抖音用户数据分析（易媒助手）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "虎牙主播分成说明（虎牙官方）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "微信小店规则中心（微信官方）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "抖店学习中心：0 元入驻规则",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "天黑了，要不要换深色模式？",
+   "where": "body > div > div > h3"
+  },
+  {
+   "zh": "2026 · 平台选型决策",
+   "where": "body > header > div > p"
+  },
+  {
+   "zh": "35 类直播第一名胜出次数",
+   "where": "div > div > div > h4"
+  },
+  {
+   "zh": "电商客单价对比 (元/笔)",
+   "where": "div > div > div > h4"
+  },
+  {
+   "zh": "35 类直播中排第一的次数",
+   "where": "body > section > div > h3"
+  },
+  {
+   "zh": "打赏文化最成熟，但大盘收缩",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "虎牙单机区成熟，观众纯度高",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "12. 品牌 / 店铺自播",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "视频号下沉市场白牌消费突出",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "D · 知识 / 专业直播",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "19. 财经投资（需资质）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "22. 探店 / 团购核销",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "26. 直播带岗 / 招聘",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "F · 情感 / 交友直播",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "28. 情感咨询 / 疗愈",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "G · 活动 / 事件直播",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "视频号用户画像分析（极智）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "抖音严禁无人直播（潮新闻）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "小红书直播服务协议（官方）",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "01 · 摘要与核心结论",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "卖高客单、做信任、吃复购",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "其他一切，且能持续做内容",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "左右滑动查看完整表格 ›",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "观众是谁，决定平台是谁。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "男性约 80%，绝对主导",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "实名即可，个人开播最友好",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "35 类直播，逐一排序。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "加粗平台为该类型第一名。",
+   "where": "section > div > p > b"
+  },
+  {
+   "zh": "2. 主机 / 单机游戏",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "3. 手游 / 休闲游戏",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "4. 棋牌麻将（强监管）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "7. 颜值 / 聊天陪伴",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "16. 二手 / 二手车",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "17. 助农 / 农产品",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "30. 演唱会 / 晚会",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "企业微信+腾讯会议栈打通",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "09 · 数据说明与局限",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "虎牙公会分成比例调整公告",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "附录 · 下一步行动建议",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "抖音游戏区可作双开备选",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "用内容换流量，规模最大",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "目的性观看，看准了才来",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "05 · 用户消费能力",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "体量最大，但分的人最多",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "读懂规则，再签任何字。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "实际约 35%–50%",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "虎牙 · 公会绑定最深",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "视频号 · 无公会依赖",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "小红书 · 公会刚起步",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "10 · 主要数据来源",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "微信视频号直播行为规范",
+   "where": "section > div > div > a"
+  },
+  {
+   "zh": "行业规模：5 万亿+",
+   "where": "header > div > div > span"
+  },
+  {
+   "zh": "信任型生意的第一主场",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "买手与主理人气质独占",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "月活用户规模 (亿)",
+   "where": "div > div > div > h4"
+  },
+  {
+   "zh": "03 · 平台基本面",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "四种体量，四种定位。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "腾讯（微信团队直营）",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "一二线为主，全域覆盖",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "，高出抖音约 58%",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "数字人 / 无人直播",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "11. 达人综合带货",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "14. 珠宝玉石文玩",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "15. 服饰档口走播",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "H · 特殊形态直播",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "诚实标注每一处近似。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "02 · 数据看板",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "04 · 观众画像",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "约 130 元/笔",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "约 205 元/笔",
+   "where": "tbody > tr > td > span"
+  },
+  {
+   "zh": "约 500 元/笔",
+   "where": "tbody > tr > td > span"
+  },
+  {
+   "zh": "06 · 平台政策",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "抖音 · 公会可选",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "内容监管与合规红线",
+   "where": "body > section > div > h3"
+  },
+  {
+   "zh": "07 · 类型排序",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "虎牙户外是传统强区",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "抖音汽车内容流量大",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "答案，其实很简单。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "35 类逐一排序",
+   "where": "header > div > div > a"
+  },
+  {
+   "zh": "一眼看懂四平台。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "用户年龄分布对比",
+   "where": "div > div > div > h4"
+  },
+  {
+   "zh": "以公会资源换流量",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "实名认证即可开播",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "A · 游戏直播",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "C · 电商带货",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "23. 酒旅民宿",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "27. 相亲交友",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "35. 健身操课",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "08 · 总结论",
+   "where": "body > section > div > p"
+  },
+  {
+   "zh": "开播与开店门槛",
+   "where": "body > section > div > h3"
+  },
+  {
+   "zh": "约 50% 起",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "提现时另行扣税",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "公会与机构政策",
+   "where": "body > section > div > h3"
+  },
+  {
+   "zh": "6. 歌舞才艺",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "多平台组合策略",
+   "where": "section > div > div > h3"
+  },
+  {
+   "zh": "数据都有出处。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "今晚去哪播？",
+   "where": "body > nav > div > span"
+  },
+  {
+   "zh": "非电商主战场",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "投流 ROI",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "固定 50%",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "24. 房产",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "25. 汽车",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "34. 宠物",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "直接看答案",
+   "where": "header > div > div > a"
+  },
+  {
+   "zh": "先看结论。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "四平台定位",
+   "where": "body > section > div > h3"
+  },
+  {
+   "zh": "微信视频号",
+   "where": "div > div > div > span"
+  },
+  {
+   "zh": "→ 视频号",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "→ 小红书",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "电商客单价",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "适合度排序",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "以后再说",
+   "where": "div > div > div > button"
+  },
+  {
+   "zh": "切换深色",
+   "where": "div > div > div > button"
+  },
+  {
+   "zh": "数据看板",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "观众画像",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "消费能力",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "平台政策",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "类型排序",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "全能选手",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "专科选手",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "价值选手",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "审美选手",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "选型口诀",
+   "where": "body > section > div > h3"
+  },
+  {
+   "zh": "→ 虎牙",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "→ 抖音",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "字节跳动",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "腾讯控股",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "月活体量",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "平台定位",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "使用时长",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "观看心态",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "打赏生态",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "付费习惯",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "开播门槛",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "开店条件",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "个人主播",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "公会主播",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "提现规则",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "资质类目",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "监管差异",
+   "where": "div > div > div > div"
+  },
+  {
+   "zh": "直播类型",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "关键理由",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "决策口诀",
+   "where": "body > section > div > h3"
+  },
+  {
+   "zh": "下一步。",
+   "where": "body > section > div > h2"
+  },
+  {
+   "zh": "基本面",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "小红书",
+   "where": "div > div > div > span"
+  },
+  {
+   "zh": "母公司",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "保证金",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "视频号",
+   "where": "tbody > tr > td > span"
+  },
+  {
+   "zh": "5 类",
+   "where": "section > div > div > span"
+  },
+  {
+   "zh": "7 类",
+   "where": "section > div > div > span"
+  },
+  {
+   "zh": "4 类",
+   "where": "section > div > div > span"
+  },
+  {
+   "zh": "2 类",
+   "where": "section > div > div > span"
+  },
+  {
+   "zh": "3 类",
+   "where": "section > div > div > span"
+  },
+  {
+   "zh": "类第一",
+   "where": "div > div > div > small"
+  },
+  {
+   "zh": "摘要",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "结论",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "来源",
+   "where": "nav > div > div > a"
+  },
+  {
+   "zh": "抖音",
+   "where": "div > div > div > span"
+  },
+  {
+   "zh": "虎牙",
+   "where": "div > div > div > span"
+  },
+  {
+   "zh": "维度",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "年龄",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "性别",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "地域",
+   "where": "table > tbody > tr > td"
+  },
+  {
+   "zh": "事项",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "平台",
+   "where": "table > thead > tr > th"
+  },
+  {
+   "zh": "今",
+   "where": "header > div > h1 > span"
+  },
+  {
+   "zh": "晚",
+   "where": "header > div > h1 > span"
+  },
+  {
+   "zh": "去",
+   "where": "header > div > h1 > span"
+  },
+  {
+   "zh": "哪",
+   "where": "header > div > h1 > span"
+  },
+  {
+   "zh": "播",
+   "where": "header > div > h1 > span"
+  },
+  {
+   "zh": "类",
+   "where": "div > div > span > small"
+  },
+  {
+   "zh": "月活用户 (亿)",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": " 亿",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "亿",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "抖音电商",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "快手电商",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "淘宝直播",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "其他",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "第一名次数",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": " 类第一",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "客单价 (元)",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "/笔",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "18岁以下",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "18-25岁",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "25-35岁",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "35-50岁",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "50岁以上",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "个人主播最低",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "个人主播最高",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "公会主播最高",
+   "where": "chart/script/aria: script"
+  },
+  {
+   "zh": "外观主题",
+   "where": "chart/script/aria: attr:aria-label"
+  },
+  {
+   "zh": "浅色模式",
+   "where": "chart/script/aria: attr:aria-label"
+  },
+  {
+   "zh": "深色模式",
+   "where": "chart/script/aria: attr:aria-label"
+  },
+  {
+   "zh": "章节导航",
+   "where": "chart/script/aria: attr:aria-label"
+  }
+ ]
+}
