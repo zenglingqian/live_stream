@@ -16,8 +16,7 @@
 │  ├─ bg-light.jpg / bg-dark.jpg   # 首屏背景（浅色 / 深色各一张）
 │  └─ vendor/chart.umd.min.js # Chart.js 4.4.7，本地 vendored，不走 CDN
 ├─ i18n/                      # 多语言：引擎模板 + 词表 + 构建/校验脚本
-├─ vibe_images/               # 背景图的生成源文件（未发布）
-└─ .直播平台选择分析报告.qoder.site  # Qoder Sites 生成的站点描述文件
+└─vibe_images/               # 背景图的生成源文件（未发布）
 ```
 
 页面包含 11 个结论章节（`h2`）、13 张对比表格、6 个 Chart.js 图表。
